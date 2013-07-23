@@ -1,0 +1,6 @@
+gunicorn
+south
+pillow
+djrill
+django-storages
+boto

@@ -1,0 +1,4 @@
+include setup.py README MANIFEST.in
+recursive-include bestofblocket/conf *
+recursive-include bestofblocket/core *
+recursive-include bestofblocket/templates *.html

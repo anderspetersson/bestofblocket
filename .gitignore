@@ -1,0 +1,9 @@
+bestofblocket/media/
+bestofblocket/static/media
+dist/
+build/
+*.egg-info
+*.sql
+*.pyc
+*.db
+.DS_Store
