@@ -1,0 +1,162 @@
+body{
+	font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 800;
+	background: url('../img/gplaypattern.png');
+}
+.container{
+	width:980px;
+	position: relative;
+}
+#topstripe{
+	background-color:#333;
+	width:100%;
+	color:#fff;
+	height:1px;
+}
+#top{
+	margin:20px 0 10px 0px;
+
+}
+.row{
+	width:980px;
+	margin:0;
+	position: relative;
+}
+.main{
+
+}
+.grid{
+	position: relative;
+	min-height: 100px;
+	margin:10px 0;
+	font-size:12px;
+	float:left;
+	background-color: #fff;
+	padding:12px;
+	box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+	-webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
+
+}
+.old{
+	background-color:#feffeb;
+}
+.single{
+	min-height:552px;
+}
+.grid img{
+	max-width: 690px;
+}
+.imageholder{
+	background-color:#fff;
+	width:690px;
+}
+.old .imageholder{
+	background-color:#feffeb;
+	width:690px;
+}
+
+.overlay{
+	position: absolute;
+	right:10px;
+	bottom:10px;
+	z-index: 2;
+}
+
+.hidden{
+	visibility: hidden;
+}
+
+#left{
+	float:left;
+	width:710px;
+	margin-right:20px;
+}
+#right{
+	float:right;
+	width:250px;
+	text-align: right;
+	margin-top:10px;
+	margin-bottom: 160px
+}
+
+.menu{
+	width:250px;
+	height:140px;
+	margin:0;
+	padding:0;
+	margin-bottom:20px;
+}
+.menu ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+.menu ul li{
+	padding:2px 0;
+	color:#333;
+	font-size:20px;
+}
+.menu ul li:first-child{
+	padding:0 0 2px 0;
+}
+.menu ul li div{
+	padding:13px 13px;
+}
+.menu ul li div{
+	background-color:#fff;
+}
+.loadmore{
+	margin-left:2px;
+}
+.rightad{
+	text-align: right;
+	margin:94px 0 0 0;
+	width:250px;
+	height:360px;
+	display: block;
+}
+.ad{
+	background-color:#c0c0c0;
+	height:360px;
+}
+.bottomad{
+	width:980px;
+	height:120px;
+	background-color:#c0c0c0;
+	display: block;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+#footer{
+	padding:40px;
+	background-color:#333;
+	color:#fff;
+	font-weight: 400;
+}
+.footerleft{
+	float:left;
+}
+.footerleft ul{
+	list-style-type: none;
+	margin:0;
+	padding:0;
+}
+.footerright{
+	float:right;
+	width:420px;
+}
+.footerright a, .footerright a:visited{
+	color:#fff;
+}
+.white{
+	color:#fff;
+}
+.small{
+	font-size:10px;
+	font-weight: 200;
+}
+.madeinskovde{
+	margin-top:20px;
+	font-weight: 800;
+}

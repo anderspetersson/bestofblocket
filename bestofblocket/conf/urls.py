@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from bestofblocket.core.views import HomePageView, AdView, RandomAdView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -9,4 +10,8 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', HomePageView.as_view(), name='index'),
+    url(r'^slumpa/$', RandomAdView.as_view(), name='random'),
+    url(r'(?P<slug>[^/]+)/$', AdView.as_view(), name='ad'),
+
 )

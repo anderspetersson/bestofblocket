@@ -1,3 +1,5 @@
+-e git://github.com/django/django.git@1.6b1#egg=django
+psycopg2
 gunicorn
 south
 pillow

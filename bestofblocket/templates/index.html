@@ -1,1 +1,24 @@
 {% extends "base.html" %}
+
+
+{% block content %}
+
+{% for ad in ad_list %}
+
+<div class="grid {% if ad.id < 173 %}old{% endif %}">
+	<div class="imageholder">
+		<a href="{% url 'ad' ad.slug %}"><img src="{{ ad.image.url }}"></a>
+	</div>
+	<div class="overlay hidden">
+		<div class="fb-like" data-href="http://www.bestofblocket.se{% url 'ad' ad.slug %}" data-layout="button_count" data-send="false" data-show-faces="true"></div>
+	</div>
+</div>
+
+{% endfor %}
+{% if page_obj.has_next %}
+<div class="clearfix">
+<a href="?page={{ page_obj.next_page_number }}" class="btn btn-default btn-lg btn-block loadmore">Visa fler</a>
+</div>
+{% endif %}
+
+{% endblock content %}
