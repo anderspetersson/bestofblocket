@@ -56,6 +56,12 @@ body{
 	width:690px;
 }
 
+.paging{
+	position: relative;
+	float:left;
+	width:100%;
+}
+
 .overlay{
 	position: absolute;
 	right:10px;
