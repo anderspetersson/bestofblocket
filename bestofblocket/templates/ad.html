@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block extrahead %}
+<title>{{ ad.title }} - Best of blocket</title>
+<meta property=”og:site_name” content=”Best of blocket”/>
+<meta property=”og:url content=”http://www.bestofblocket.se{% url 'ad' ad.slug %}”/>
+{% endblock extrahead %}
+
 
 {% block content %}
 
