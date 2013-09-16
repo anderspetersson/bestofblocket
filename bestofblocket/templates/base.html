@@ -8,7 +8,7 @@
 		<meta name="author" content="Anders Petersson" />
 		<meta http-equiv="Content-Language" content="sv" />
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/style.2.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'css/style.3.css' %}">
 		<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 		<title>Best of blocket - Sedan 2004</title>
 	</head>
@@ -36,13 +36,18 @@
 	<div class="container clearfix main">
 		<div id="top" class="row">
 			<a href="{% url 'index' %}"><img src="{% static 'img/logotype.png' %}" width="240"></a>
+			{% if flavour == "mobile" %}
+			<a href="{% url 'index' %}" class="mobilemenu">Lista</a>
+			<a href="{% url 'random' %}" class="mobilemenu">Slumpa</a>
+			{% endif %}
 		</div>
-		<div class="row">
+		<div class="row clearfix">
 			<div id="left">
 				{% block content %}
 
 				{% endblock content %}
 			</div>
+			{% if flavour != "mobile" %}
 			<div id="right">
 				<div class="menu">
 					<ul>
@@ -66,17 +71,25 @@
 					</div>
 				</div>
 			</div>
+			{% endif %}
 		</div>
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="bottom">
 				<div class="bottomad">
-					<!-- Bestofblocket Bottom -->
-					<ins class="adsbygoogle"
-					     style="display:inline-block;width:980px;height:120px"
+					<style>
+					.bestofblocket-responsive { width: 320px; height: 50px; }
+					@media(min-width: 500px) { .bestofblocket-responsive { width: 468px; height: 60px; } }
+					@media(min-width: 800px) { .bestofblocket-responsive { width: 728px; height: 90px; } }
+					@media(min-width: 1100px) { .bestofblocket-responsive { width: 980px; height: 120px; } }
+					</style>
+					<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Bestofblocket Responsive -->
+					<ins class="adsbygoogle bestofblocket-responsive"
+					     style="display:inline-block"
 					     data-ad-client="ca-pub-4932792919894537"
-					     data-ad-slot="4003100576"></ins>
+					     data-ad-slot="7556839374"></ins>
 					<script>
 					(adsbygoogle = window.adsbygoogle || []).push({});
 					</script>
