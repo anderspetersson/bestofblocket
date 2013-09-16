@@ -33,7 +33,6 @@ a.mobilemenu{
 	margin:0;
 	position: relative;
 }
-@media(min-width: 1100px) { .row { width: 980px;} }
 
 .main{
 
@@ -127,6 +126,7 @@ a.mobilemenu{
 }
 .loadmore{
 	margin-left:2px;
+	font-weight:800;
 }
 .rightad{
 	text-align: right;
@@ -175,4 +175,13 @@ a.mobilemenu{
 .madeinskovde{
 	margin-top:20px;
 	font-weight: 800;
+}
+
+.btn-lg{
+	padding:25px 20px;
+}
+
+@media(min-width: 1100px) {
+	.row { width: 980px;}
+	.btn-lg{ padding:10px 16px;} 
 }
