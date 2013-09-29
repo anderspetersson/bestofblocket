@@ -8,7 +8,11 @@
 
 
 {% block content %}
-
+	{% if request.user.is_superuser %}
+	{% if ad.generation == 0 %}
+	<a href="{% url 'setgeneration' ad.id 1 %}">Generation 1</a> | <a href="{% url 'setgeneration' ad.id 2 %}">Generation 2</a> | <a href="{% url 'setgeneration' ad.id 3 %}">Generation 3</a>
+	{% endif %}
+	{% endif %}
 	<div class="grid{% if ad.id < 173 %} old{% endif %} single">
 	<div class="imageholder">
 		<img src="{{ ad.image.url }}">

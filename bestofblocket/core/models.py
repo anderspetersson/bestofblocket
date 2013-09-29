@@ -9,6 +9,7 @@ class Ad(models.Model):
     date = models.DateTimeField()
     tips_author = models.CharField(max_length=50)
     image = models.ImageField(upload_to='ads/')
+    generation = models.SmallIntegerField(default=0, null=True, blank=True)
 
     class Meta:
         ordering = ['-pk']

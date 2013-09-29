@@ -33,3 +33,13 @@ class RandomAdView(RedirectView):
         slug = ad.slug
         print slug
         return redirect(reverse('ad', args=(ad.slug, )))
+
+def setgenerationview(request, adid, gen):
+
+    if request.user.is_superuser:
+
+        ad = Ad.objects.get(id=adid)
+        ad.generation = gen
+        ad.save()
+
+        return redirect('/slumpa/')
