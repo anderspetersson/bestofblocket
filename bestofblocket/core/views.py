@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView, RedirectView
 from django.shortcuts import redirect
+from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse
 from bestofblocket.core.models import Ad
 
@@ -43,3 +44,14 @@ def setgenerationview(request, adid, gen):
         ad.save()
 
         return redirect('/slumpa/')
+
+
+class AdSitemap(Sitemap):
+    changefreq = "never"
+    priority = 0.5
+
+    def items(self):
+        return Ad.objects.all()
+
+    def lastmod(self, obj):
+        return obj.date

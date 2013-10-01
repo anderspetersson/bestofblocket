@@ -17,6 +17,9 @@ class Ad(models.Model):
     def __unicode__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return '/%s/' % self.slug
+
     def save(self, **kwargs):
         unique_slugify(self, value=self.title)
         super(Ad, self).save()
