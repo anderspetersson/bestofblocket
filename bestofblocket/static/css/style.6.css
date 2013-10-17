@@ -134,6 +134,7 @@ a.mobilemenu{
 	width:250px;
 	height:360px;
 	display: block;
+	margin-top:36px;
 }
 .ad{
 	height:360px;
@@ -179,6 +180,28 @@ a.mobilemenu{
 
 .btn-lg{
 	padding:25px 20px;
+}
+
+#id_url{
+	height:45px;
+	font-size:18px;
+	line-height: 1.33;
+	border-radius:6px;
+	padding: 10px 16px;
+	width:100%;
+	margin-right:20px;
+}
+
+.link-form-submit{
+	width:300px;
+	margin: 20px auto;
+	text-align:center;
+}
+
+.submit-link-form{
+	text-align:center;
+	margin:0 auto;
+	width:100%;
 }
 
 @media(min-width: 1100px) {

@@ -1,9 +1,9 @@
-from django.views.generic import ListView, DetailView, RedirectView
+from django.views.generic import ListView, DetailView, RedirectView, CreateView, TemplateView
 from django.shortcuts import redirect
 from django.contrib.sitemaps import Sitemap
-from django.core.urlresolvers import reverse
-from bestofblocket.core.models import Ad
-
+from django.core.urlresolvers import reverse, reverse_lazy
+from bestofblocket.core.models import Ad, Link
+from bestofblocket.core.forms import SubmitLinkForm
 
 class HomePageView(ListView):
     """
@@ -34,6 +34,22 @@ class RandomAdView(RedirectView):
         slug = ad.slug
         print slug
         return redirect(reverse('ad', args=(ad.slug, )))
+
+
+class SubmitLinkView(CreateView):
+    """
+    Let users submit links to blocket-ads.
+    """
+
+    model = Link
+    template_name = 'submit.html'
+    forms_class = SubmitLinkForm
+    success_url = reverse_lazy('thanks')
+
+
+class ThankView(TemplateView):
+    template_name = 'thanks.html'
+
 
 def setgenerationview(request, adid, gen):
 

@@ -23,3 +23,10 @@ class Ad(models.Model):
     def save(self, **kwargs):
         unique_slugify(self, value=self.title)
         super(Ad, self).save()
+
+
+class Link(models.Model):
+    url = models.URLField()
+
+    def __unicode__(self):
+        return url
