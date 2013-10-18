@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
-from bestofblocket.core.views import HomePageView, AdView, RandomAdView, setgenerationview, AdSitemap, SubmitLinkView, ThankView
+from bestofblocket.core.views import HomePageView, AdView, RandomAdView, setgenerationview, \
+ AdSitemap, SubmitLinkView, ThankView, TextTemplateView
 
 from django.contrib import admin
 admin.autodiscover()

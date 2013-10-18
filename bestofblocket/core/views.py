@@ -62,6 +62,16 @@ def setgenerationview(request, adid, gen):
         return redirect('/slumpa/')
 
 
+class TextTemplateView(TemplateView):
+    """
+    Returns text. Used in robots.txt.
+    """
+
+    def render_to_response(self, context, **response_kwargs):
+        response_kwargs['content_type'] = 'text/plain'
+        return super(TemplateView, self).render_to_response(context, **response_kwargs)
+
+
 class AdSitemap(Sitemap):
     changefreq = "never"
     priority = 0.5
