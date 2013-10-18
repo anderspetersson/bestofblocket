@@ -29,4 +29,4 @@ class Link(models.Model):
     url = models.URLField()
 
     def __unicode__(self):
-        return url
+        return self.url
