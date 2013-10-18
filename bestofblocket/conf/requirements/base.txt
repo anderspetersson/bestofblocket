@@ -7,3 +7,4 @@ djrill
 django-storages
 boto
 django_mobile
+raven
