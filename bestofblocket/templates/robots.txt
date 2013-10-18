@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /redirect.php
+Disallow: /hbgsr/
+Disallow: /Lupo/
