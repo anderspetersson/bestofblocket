@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from bestofblocket.core.views import HomePageView, AdView, RandomAdView, setgenerationview, \
+from bestofblocket.core.views import HomePageView, AdView, RandomAdView, \
  AdSitemap, SubmitLinkView, ThankView, TextTemplateView
 
 from django.contrib import admin
@@ -17,12 +17,9 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomePageView.as_view(), name='index'),
     url(r'^slumpa/$', RandomAdView.as_view(), name='random'),
-    url(r'^setgeneration/(?P<adid>[^/]+)/(?P<gen>[^/]+)/$', setgenerationview, name='setgeneration'),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     url(r'^tipsa/', SubmitLinkView.as_view(), name='submit'),
     url(r'^tack/', ThankView.as_view(), name='thanks'),
     url(r'^robots\.txt$', TextTemplateView.as_view(template_name="robots.txt")),
     url(r'(?P<slug>[^/]+)/$', AdView.as_view(), name='ad'),
-
-
 )

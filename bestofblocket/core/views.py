@@ -51,17 +51,6 @@ class ThankView(TemplateView):
     template_name = 'thanks.html'
 
 
-def setgenerationview(request, adid, gen):
-
-    if request.user.is_superuser:
-
-        ad = Ad.objects.get(id=adid)
-        ad.generation = gen
-        ad.save()
-
-        return redirect('/slumpa/')
-
-
 class TextTemplateView(TemplateView):
     """
     Returns text. Used in robots.txt.
