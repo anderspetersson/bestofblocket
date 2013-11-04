@@ -32,7 +32,6 @@ class RandomAdView(RedirectView):
     def get(self, request, *args, **kwargs):
         ad = Ad.objects.all().order_by('?')[0]
         slug = ad.slug
-        print slug
         return redirect(reverse('ad', args=(ad.slug, )))
 
 
