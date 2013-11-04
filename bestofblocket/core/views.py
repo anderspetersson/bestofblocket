@@ -1,5 +1,4 @@
 from django.views.generic import ListView, DetailView, RedirectView, CreateView, TemplateView
-from django.shortcuts import redirect
 from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse, reverse_lazy
 from bestofblocket.core.models import Ad, Link
@@ -29,10 +28,11 @@ class RandomAdView(RedirectView):
     Redirects to a random ad.
     """
 
-    def get(self, request, *args, **kwargs):
+    permanent = False
+
+    def get_redirect_url(self, **kwargs):
         ad = Ad.objects.all().order_by('?')[0]
-        slug = ad.slug
-        return redirect(reverse('ad', args=(ad.slug, )))
+        return reverse('ad', args=(ad.slug, ))
 
 
 class SubmitLinkView(CreateView):
