@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from bestofblocket.core.models import Ad, Link
 from bestofblocket.core.forms import SubmitLinkForm
 
+
 class HomePageView(ListView):
     """
     Render index page.

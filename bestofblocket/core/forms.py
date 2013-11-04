@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from bestofblocket.core.models import Link
-class SubmitLinkForm(forms.ModelForm):
 
+
+class SubmitLinkForm(forms.ModelForm):
     class Meta:
         model = Link
         fields = ['url']
