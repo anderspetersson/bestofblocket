@@ -1,4 +1,4 @@
--e git://github.com/django/django.git@1.6b4#egg=django
+-e git://github.com/django/django.git@1.6c1#egg=django
 psycopg2
 gunicorn
 south
