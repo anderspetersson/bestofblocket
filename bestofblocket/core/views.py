@@ -47,6 +47,10 @@ class SubmitLinkView(CreateView):
 
 
 class ThankView(TemplateView):
+    """
+    Thanks the user when he/she submits a link.
+    """
+
     template_name = 'thanks.html'
 
 
@@ -61,6 +65,10 @@ class TextTemplateView(TemplateView):
 
 
 class AdSitemap(Sitemap):
+    """
+    Sitemap with all the Ads.
+    """
+
     changefreq = "never"
     priority = 0.5
 
