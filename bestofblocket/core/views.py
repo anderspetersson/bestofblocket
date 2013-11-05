@@ -10,9 +10,9 @@ class HomePageView(ListView):
     Render index page.
     """
 
-    model = Ad
     template_name = 'index.html'
     paginate_by = 10
+    queryset = Ad.objects.filter(is_approved=True)
 
 
 class AdView(DetailView):
@@ -32,7 +32,7 @@ class RandomAdView(RedirectView):
     permanent = False
 
     def get_redirect_url(self, **kwargs):
-        ad = Ad.objects.all().order_by('?')[0]
+        ad = Ad.objects.filter(is_approved=True).order_by('?')[0]
         return reverse('ad', args=(ad.slug, ))
 
 
@@ -74,7 +74,7 @@ class AdSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Ad.objects.all()
+        return Ad.objects.filter(is_approved=True)
 
     def lastmod(self, obj):
         return obj.date
