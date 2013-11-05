@@ -30,3 +30,8 @@ class Link(models.Model):
 
     def __unicode__(self):
         return self.url
+
+    def save(self, **kwargs):
+        from bestofblocket.core.tasks import set_blocket_info
+        set_blocket_info(self.url)
+        super(Link, self).save()
