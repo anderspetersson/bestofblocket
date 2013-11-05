@@ -29,7 +29,7 @@ def get_version(version=None):
     """
 
     if version is None:
-        from smartblog import VERSION as version
+        from bestofblocket import VERSION as version
     else:
         assert len(version) == 5
         assert version[3] in ('alpha', 'beta', 'rc', 'final')

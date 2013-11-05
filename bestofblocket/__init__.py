@@ -1,4 +1,4 @@
-VERSION = (0, 1, 0, 'alpha', 0)
+VERSION = (3, 0, 0, 'alpha', 0)
 
 def get_version(*args, **kwargs):
     # Don't litter django/__init__.py with all the get_version stuff.
