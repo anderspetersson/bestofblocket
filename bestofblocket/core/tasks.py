@@ -42,3 +42,5 @@ def set_blocket_info(url):
     ad.save()
     ad.image.save(img_filename, File(img_temp))
 
+    return ad
+

@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.mail import mail_admins
 from bestofblocket.core.utils import unique_slugify
 
 
@@ -33,5 +34,6 @@ class Link(models.Model):
 
     def save(self, **kwargs):
         from bestofblocket.core.tasks import set_blocket_info
-        set_blocket_info(self.url)
+        ad = set_blocket_info(self.url)
+        mail_admins('Ny blocketannons', 'En ny blocketannons har blivit tipsad: http://www.bestofblocket.se/admin/core/ad/%s/' % str(ad.id))
         super(Link, self).save()
