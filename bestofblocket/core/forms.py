@@ -7,8 +7,13 @@ class SubmitLinkForm(forms.ModelForm):
     class Meta:
         model = Link
         fields = ['url']
-        widgets = {
-        'url': forms.TextInput(attrs={
-            'placeholder': 'Fyll i din länk, t.ex. http://www.blocket.se/stockholm/haftig_grej_20111.htm?ca=11&w=1'
-            })
-        }
+
+    def clean_url(self):
+        """
+        Check if the URL is from blocket.se
+        """
+
+        url = self.cleaned_data.get('url')
+        if not 'blocket.se' in url:
+            raise forms.ValidationError('Länken måste vara från blocket.se')
+        return url

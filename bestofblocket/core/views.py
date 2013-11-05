@@ -41,9 +41,8 @@ class SubmitLinkView(CreateView):
     Let users submit links to blocket-ads.
     """
 
-    model = Link
     template_name = 'submit.html'
-    forms_class = SubmitLinkForm
+    form_class = SubmitLinkForm
     success_url = reverse_lazy('thanks')
 
 

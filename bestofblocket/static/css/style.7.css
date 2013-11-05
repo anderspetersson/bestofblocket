@@ -204,6 +204,22 @@ a.mobilemenu{
 	width:100%;
 }
 
+.infolist{
+	list-style-type: none;
+	text-align:left;
+	padding:0;
+}
+
+.infolist li{
+	padding:10px;
+	border-radius: 3px
+}
+
+.infolist .error{
+  background-color:#c45656;
+  color:#fff;
+ }
+
 @media(min-width: 1100px) {
 	.row { width: 980px;}
 	.btn-lg{ padding:10px 16px;} 
