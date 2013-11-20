@@ -9,9 +9,15 @@
 
 {% block content %}
 	<div class="grid{% if ad.generation == 1 %} old{% endif %} single">
+	{% if ad.generation == 3 %}
+		<h2>{{ ad }}</h2>
+	{% endif %}
 	<div class="imageholder">
 		<img src="{{ ad.image.url }}">
 	</div>
+	{% if ad.generation == 3 %}
+		<p class="text">{{ ad.text|linebreaks }}</p>
+	{% endif %}
 	<div class="overlay hidden">
 		<div class="fb-like" data-href="http://www.bestofblocket.se{% url 'ad' ad.slug %}" data-layout="button_count" data-send="false" data-show-faces="true"></div>
 	</div>

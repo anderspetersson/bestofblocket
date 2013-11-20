@@ -3,6 +3,17 @@ body{
 	font-weight: 800;
 	background: url('../img/gplaypattern.png');
 }
+
+h2{
+	margin-top:0;
+}
+
+p{
+	color:#888;
+	font-weight:400;
+	line-height: 1.5;
+}
+
 .container{
 	width:980px;
 	position: relative;
