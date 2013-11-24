@@ -22,10 +22,11 @@ def set_blocket_info(url):
     content = soup.find("p", {"class": "item_body"}).contents
     text = ""
     for line in content:
-        if line.encode("utf-8") != '<br/>':
-            text+=line
-        elif line.encode("utf-8") == '<br/>':
-            text+='\n'
+        if not '<strong>' in line.encode('utf-8'): 
+            if line.encode("utf-8") != '<br/>':
+                text+=line
+            elif line.encode("utf-8") == '<br/>':
+                text+='\n'
 
     content = text.encode('utf-8')
 
