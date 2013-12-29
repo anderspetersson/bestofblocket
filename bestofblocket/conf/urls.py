@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from bestofblocket.core.views import HomePageView, AdView, RandomAdView, \
- AdSitemap, SubmitLinkView, ThankView, TextTemplateView
+ AdSitemap, SubmitLinkView, ThankView, TextTemplateView, JSONListView, MobileWebsiteView
 
 from django.contrib import admin
 admin.autodiscover()
@@ -16,6 +16,9 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', HomePageView.as_view(), name='index'),
+
+    url(r'^api/$', JSONListView.as_view(), name='jsonindex'),
+    url(r'^mobile/$', MobileWebsiteView.as_view(), name='mobile'),
     url(r'^slumpa/$', RandomAdView.as_view(), name='random'),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     url(r'^tipsa/', SubmitLinkView.as_view(), name='submit'),

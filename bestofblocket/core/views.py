@@ -1,8 +1,10 @@
 from django.views.generic import ListView, DetailView, RedirectView, CreateView, TemplateView
 from django.contrib.sitemaps import Sitemap
 from django.core.urlresolvers import reverse, reverse_lazy
+from django.template.defaultfilters import linebreaksbr
 from bestofblocket.core.models import Ad, Link
 from bestofblocket.core.forms import SubmitLinkForm
+from braces.views import JSONResponseMixin
 
 
 class HomePageView(ListView):
@@ -13,6 +15,26 @@ class HomePageView(ListView):
     template_name = 'index.html'
     paginate_by = 10
     queryset = Ad.objects.filter(is_approved=True)
+
+
+class JSONListView(JSONResponseMixin, ListView):
+
+    paginate_by = 10
+    queryset = Ad.objects.filter(is_approved=True, generation=3)
+
+    def get(self, request, *args, **kwargs):
+        context_dict = {}
+        items = []
+        for o in self.queryset:
+            items.append({'titletext': o.title, 'bodytext': linebreaksbr(o.text), 'img': o.image.url})
+
+        context_dict['items'] = items
+
+        return self.render_json_response(context_dict)
+
+
+class MobileWebsiteView(TemplateView):
+    template_name = 'mobile.html'
 
 
 class AdView(DetailView):

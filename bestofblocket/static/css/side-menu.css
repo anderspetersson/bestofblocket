@@ -1,0 +1,105 @@
+body {
+    color: #777;
+    margin:0;
+    padding:0;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: " ";
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*
+Add transition to containers so they can push in and out.
+*/
+#layout,
+#menu,
+.menu-link {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+#layout {
+    /*padding-left: 150px; /* left col width "#menu" */
+    left: 0;
+}
+
+/*
+The content `<div>` is where all your content goes.
+*/
+.content {
+    margin: 40px auto;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
+    line-height: 1.6em;
+}
+
+.header {
+     position:fixed;
+     top:0;
+     color: #999;
+     width:100%;
+     z-index:2;
+     background-color:#fff;
+     border-bottom:1px solid #f0f0f0;
+ }
+    .title {
+        font-weight: 300;
+        color: #888;
+        float:left;
+        padding:15px;
+    }
+     .navigation {
+        padding:15px;
+        float:right;
+    }
+        .btn{
+            color:rgb(21, 125, 251);
+        }
+
+h1 {
+    margin-top: 30px;
+    font-weight: 300;
+    color: #888;
+}
+
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#footer{
+     position:fixed;
+     bottom:0;
+     color: #999;
+     width:100%;
+     z-index:2;
+     background-color:#fff;
+     border-top:1px solid #f0f0f0;
+}
+
+    .love{
+        float:left;
+        padding:15px;
+    }
+
+    .share{
+        float:right;
+        padding:15px;
+    }

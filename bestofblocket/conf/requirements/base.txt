@@ -9,3 +9,4 @@ boto
 django_mobile
 raven
 beautifulsoup4==4.3.2
+django-braces==1.2.2
