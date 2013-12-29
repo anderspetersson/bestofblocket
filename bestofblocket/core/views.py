@@ -26,7 +26,10 @@ class JSONListView(JSONResponseMixin, ListView):
         context_dict = {}
         items = []
         for o in self.queryset:
-            items.append({'titletext': o.title, 'bodytext': linebreaksbr(o.text), 'img': o.image.url})
+            items.append({'titletext': o.title,
+                'bodytext': linebreaksbr(o.text),
+                'img': o.image.url,
+                'slug': o.slug})
 
         context_dict['items'] = items
 
