@@ -25,7 +25,7 @@ class JSONListView(JSONResponseMixin, ListView):
     def get(self, request, *args, **kwargs):
         context_dict = {}
         items = []
-        for o in self.queryset:
+        for o in Ad.objects.filter(is_approved=True, generation=3):
             items.append({'titletext': o.title,
                 'bodytext': linebreaksbr(o.text),
                 'img': o.image.url,
