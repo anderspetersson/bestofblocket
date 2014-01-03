@@ -12,6 +12,7 @@ def set_blocket_info(url):
     saves to the database.
     """
 
+    orginalurl = url
     uri = url.split('.se')[1]
     url = 'http://mobil.blocket.se%s' % uri
 
@@ -40,6 +41,7 @@ def set_blocket_info(url):
     img_filename = imageurl.split('/')[-1]
 
     ad = Ad(title=title, generation=3, text=content)
+    ad.link = orginalurl
     ad.save()
     ad.image.save(img_filename, File(img_temp))
 

@@ -11,6 +11,7 @@ class Ad(models.Model):
     generation = models.SmallIntegerField(default=0, null=True, blank=True)
     is_approved = models.BooleanField(default=False)
     text = models.TextField(null=True, blank=True)
+    link = models.URLField(null=True, blank=True)
 
     class Meta:
         ordering = ['-pk']

@@ -68,7 +68,10 @@ class SubmitLinkView(CreateView):
 
     template_name = 'submit.html'
     form_class = SubmitLinkForm
-    success_url = reverse_lazy('thanks')
+
+    def get_success_url(self):
+        ad = Ad.objects.get(link=self.object.url)
+        return reverse('ad', kwargs={'slug': ad.slug})
 
 
 class ThankView(TemplateView):
