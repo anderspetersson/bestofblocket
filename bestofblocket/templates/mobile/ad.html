@@ -1,0 +1,20 @@
+{% extends "mobile/base.html" %}
+{% block title %}{{ ad.title }}{% endblock %}
+
+{% block content %}
+<div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+	<div class="owl-wrapper-outer autoHeight">
+	<div class="owl-wrapper" style="display:block;">
+		<div class="owl-item">
+		<div class="item">
+			<h1>{{ ad.title }}</h1>
+			{% if ad.image %}
+				<img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+			{% endif %}
+			<p>{{ ad.text|linebreaksbr }}</p>
+		</div>
+		</div>
+	</div>
+	</div>
+</div>
+{% endblock content %}

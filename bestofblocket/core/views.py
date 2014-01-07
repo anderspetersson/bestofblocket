@@ -26,10 +26,17 @@ class JSONListView(JSONResponseMixin, ListView):
         context_dict = {}
         items = []
         for o in Ad.objects.filter(is_approved=True, generation=3):
-            items.append({'titletext': o.title,
-                'bodytext': linebreaksbr(o.text),
-                'img': o.image.url,
-                'slug': o.slug})
+            if o.image:
+                items.append({
+                    'titletext': o.title,
+                    'bodytext': linebreaksbr(o.text),
+                    'img': o.image.url,
+                    'slug': o.slug})
+            else:
+                items.append({
+                    'titletext': o.title,
+                    'bodytext': linebreaksbr(o.text),
+                    'slug': o.slug})
 
         context_dict['items'] = items
 
@@ -37,7 +44,7 @@ class JSONListView(JSONResponseMixin, ListView):
 
 
 class MobileWebsiteView(TemplateView):
-    template_name = 'mobile.html'
+    template_name = 'mobile/index.html'
 
 
 class AdView(DetailView):
@@ -46,7 +53,12 @@ class AdView(DetailView):
     """
 
     model = Ad
-    template_name = 'ad.html'
+
+    def get_template_names(self):
+        if self.request.is_mobile and self.get_object().generation == 3:
+            return 'mobile/ad.html'
+        else:
+            return 'ad.html'
 
 
 class RandomAdView(RedirectView):

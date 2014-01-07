@@ -1,0 +1,10 @@
+{% extends "mobile/base.html" %}
+{% load static %}
+
+{% block extrajs %}    
+	<script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/ui12.js' %}"></script>
+{% endblock extrajs %}
+
+{% block rightnavigation %}<a class="btn next">></a>{% endblock rightnavigation %}
