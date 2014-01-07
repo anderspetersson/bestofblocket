@@ -31,19 +31,21 @@ def set_blocket_info(url):
 
     content = text.encode('utf-8')
 
-    tags = soup.find("li", {'class': 'li_mobile_img'})
-    imageurl = tags.find('img')['src']
-
-    img_temp = NamedTemporaryFile(delete=True)
-    img_temp.write(urllib2.urlopen(imageurl).read())
-    img_temp.flush()
-
-    img_filename = imageurl.split('/')[-1]
-
     ad = Ad(title=title, generation=3, text=content)
     ad.link = orginalurl
     ad.save()
-    ad.image.save(img_filename, File(img_temp))
+
+    img_tags = soup.find("li", {'class': 'li_mobile_img'})
+
+    if img_tags:
+        imageurl = img_tags.find('img')['src']
+
+        img_temp = NamedTemporaryFile(delete=True)
+        img_temp.write(urllib2.urlopen(imageurl).read())
+        img_temp.flush()
+
+        img_filename = imageurl.split('/')[-1]
+        ad.image.save(img_filename, File(img_temp))
 
     return ad
 

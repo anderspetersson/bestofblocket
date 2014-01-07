@@ -12,9 +12,11 @@
 	{% if ad.generation == 3 %}
 		<h2>{{ ad }}</h2>
 	{% endif %}
+	{% if ad.image %}
 	<div class="imageholder">
 		<img src="{{ ad.image.url }}">
 	</div>
+	{% endif %}
 	{% if ad.generation == 3 %}
 		<p class="text">{{ ad.text|linebreaks }}</p>
 	{% endif %}

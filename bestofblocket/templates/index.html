@@ -10,11 +10,13 @@
 
 <div class="grid {% if ad.generation == 1 %}old{% endif %}">
 	{% if ad.generation == 3 %}
-		<h2>{{ ad }}</h2>
+		<h2><a href="{% url 'ad' ad.slug %}">{{ ad }}</a></h2>
 	{% endif %}
+	{% if ad.image %}
 	<div class="imageholder">
 		<a href="{% url 'ad' ad.slug %}"><img src="{{ ad.image.url }}"></a>
 	</div>
+	{% endif %}
 	{% if ad.generation == 3 %}
 		<p class="text">{{ ad.text|linebreaks }}</p>
 	{% endif %}

@@ -7,7 +7,7 @@ class Ad(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='blocketimages/')
+    image = models.ImageField(upload_to='blocketimages/', blank=True, null=True)
     generation = models.SmallIntegerField(default=0, null=True, blank=True)
     is_approved = models.BooleanField(default=False)
     text = models.TextField(null=True, blank=True)
