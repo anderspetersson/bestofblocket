@@ -2,7 +2,7 @@
 {% block title %}{{ ad.title }}{% endblock %}
 
 {% block extrameta %}
-	<meta property="og:image" content="{{ ad.image.url }}"/>
+	<meta property="og:image" content="http://s3-eu-west-1.amazonaws.com/bestofblocketse/blocketimages/{{ ad.image.file.name }}"/>
 {% endblock extrameta %}
 
 {% block rightnavigation %}
