@@ -1,6 +1,10 @@
 {% extends "mobile/base.html" %}
 {% block title %}{{ ad.title }}{% endblock %}
 
+{% block navigation %}
+	<div class="fb-share-button" data-href="{% url 'ad' ad.slug %}" data-type="button"></div>
+	{% endblock navigation %}
+
 {% block content %}
 <div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
 	<div class="owl-wrapper-outer autoHeight">
