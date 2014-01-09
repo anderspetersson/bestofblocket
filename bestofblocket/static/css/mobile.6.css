@@ -69,6 +69,7 @@ The content `<div>` is where all your content goes.
 
      .navigation {
         float:right;
+        padding:15px;
     }
         .btn{
             color:rgb(21, 125, 251);
@@ -96,6 +97,21 @@ p {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.randomlink{
+    width:100%;
+    border:1px solid #888;
+    background-color:#888;
+    text-align:center;
+    line-height: 50px;
+}
+
+.randomlink a{
+    padding:0 15px;
+    text-decoration: none;
+    color:#fff;
+    display:block;
 }
 
 #footer{

@@ -2,27 +2,30 @@
 {% block title %}{{ ad.title }}{% endblock %}
 
 {% block extrameta %}
-	<meta property="og:image" content="http://s3-eu-west-1.amazonaws.com/bestofblocketse/{{ ad.image.file.name }}"/>
+    <meta property="og:image" content="http://bestofblocketse.s3.amazonaws.com/{{ ad.image.file.name }}"/>
 {% endblock extrameta %}
 
 {% block rightnavigation %}
-	<div class="fb-share-button" data-href="http://www.bestofblocket.se/{{ ad.slug }}/" data-type="button"></div>
+    <div class="fb-share-button" data-href="http://www.bestofblocket.se/{{ ad.slug }}/" data-type="button"></div>
 {% endblock rightnavigation %}
 
 {% block content %}
 <div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
-	<div class="owl-wrapper-outer autoHeight">
-	<div class="owl-wrapper" style="display:block;">
-		<div class="owl-item">
-		<div class="item">
-			<h1>{{ ad.title }}</h1>
-			{% if ad.image %}
-				<img src="{{ ad.image.url }}" alt="{{ ad.title }}">
-			{% endif %}
-			<p>{{ ad.text|linebreaksbr }}</p>
-		</div>
-		</div>
-	</div>
-	</div>
+    <div class="owl-wrapper-outer autoHeight">
+    <div class="owl-wrapper" style="display:block;">
+        <div class="owl-item">
+        <div class="item">
+            <h1>{{ ad.title }}</h1>
+            {% if ad.image %}
+                <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+            {% endif %}
+            <p>{{ ad.text|linebreaksbr }}</p>
+            <div class="randomlink">
+                <a href="{% url 'randomgen3' %}">Visa ny annons</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
 </div>
 {% endblock content %}

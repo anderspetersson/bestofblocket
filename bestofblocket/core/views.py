@@ -73,6 +73,18 @@ class RandomAdView(RedirectView):
         return reverse('ad', args=(ad.slug, ))
 
 
+class RandomGen3AdView(RedirectView):
+    """
+    Redirect to a random ad of generation 3. (Mobile optimized)
+    """
+
+    permanent = False
+
+    def get_redirect_url(self, **kwargs):
+        ad = Ad.objects.filter(is_approved=True, generation=3).order_by('?')[0]
+        return reverse('ad', args=(ad.slug, ))
+
+
 class SubmitLinkView(CreateView):
     """
     Let users submit links to blocket-ads.
