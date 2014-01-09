@@ -94,7 +94,8 @@ class SubmitLinkView(CreateView):
     form_class = SubmitLinkForm
 
     def get_success_url(self):
-        ad = Ad.objects.get(link=self.object.url)
+        url = self.object.url.split('?')[0]
+        ad = Ad.objects.get(link=url)
         return reverse('ad', kwargs={'slug': ad.slug})
 
 

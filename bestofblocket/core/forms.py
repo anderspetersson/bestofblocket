@@ -26,6 +26,8 @@ class SubmitLinkForm(forms.ModelForm):
         """
 
         link = self.cleaned_data.get('url')
+        print link.split('?')
+        link = link.split('?')[0]
         ad = Ad.objects.filter(link=link).first()
         if ad:
             return super(SubmitLinkForm, self).save(commit=False)

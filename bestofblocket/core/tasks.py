@@ -32,7 +32,7 @@ def set_blocket_info(url):
     content = text.encode('utf-8')
 
     ad = Ad(title=title, generation=3, text=content)
-    ad.link = orginalurl
+    ad.link = orginalurl.split('?')[0]
     ad.save()
 
     img_tags = soup.find("li", {'class': 'li_mobile_img'})
