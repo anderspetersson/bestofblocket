@@ -2,8 +2,11 @@
 
 {% block extrahead %}
 <title>{{ ad.title }} - Best of blocket</title>
-<meta property=”og:site_name” content=”Best of blocket”/>
-<meta property=”og:url content=”http://www.bestofblocket.se{% url 'ad' ad.slug %}”/>
+<meta property="og:site_name" content="Best of blocket"/>
+<meta property="og:url" content="http://www.bestofblocket.se{% url 'ad' ad.slug %}"/>
+{% if ad.generation == 3 %}
+<meta property="og:image" content="http://s3-eu-west-1.amazonaws.com/bestofblocketse/{{ ad.image.file.name }}"/>
+{% endif %}
 {% endblock extrahead %}
 
 
