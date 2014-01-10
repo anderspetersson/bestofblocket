@@ -1,5 +1,5 @@
 $(document).ready(function() {
-var owl = $("#owl-demo");
+  var owl = $("#owl-demo");
   $("#owl-demo").owlCarousel({
     lazyLoad : true,
     navigation : false, // Show next and prev buttons
