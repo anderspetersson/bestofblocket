@@ -16,6 +16,7 @@ p{
 	color:#888;
 	font-weight:400;
 	line-height: 1.5;
+	word-break:break-all;
 }
 
 .container{

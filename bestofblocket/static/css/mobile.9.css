@@ -89,6 +89,7 @@ h1 {
 
 p {
     padding:0 20px;
+    word-break:break-all;
 }
 
 #owl-demo .item{
