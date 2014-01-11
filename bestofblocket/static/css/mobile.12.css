@@ -92,9 +92,10 @@ p {
     word-break:break-word;
 }
 
-#owl-demo .item{
-  margin: 3px;
+#owl-dem .owl-item{
+  width:100%;
 }
+
 #owl-demo .item img{
   display: block;
   width: 100%;
