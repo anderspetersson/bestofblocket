@@ -1,9 +1,11 @@
 {% extends "mobile/base.html" %}
 {% block title %}{{ ad.title }}{% endblock %}
 
+{% if ad.image %}
 {% block extrameta %}
     <meta property="og:image" content="http://bestofblocketse.s3.amazonaws.com/{{ ad.image.file.name }}"/>
 {% endblock extrameta %}
+{% endif %}
 
 {% block rightnavigation %}
     <div class="fb-share-button" data-href="http://www.bestofblocket.se/{{ ad.slug }}/" data-type="button"></div>
