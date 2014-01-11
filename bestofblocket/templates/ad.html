@@ -5,7 +5,9 @@
 <meta property="og:site_name" content="Best of blocket"/>
 <meta property="og:url" content="http://www.bestofblocket.se{% url 'ad' ad.slug %}"/>
 {% if ad.generation == 3 %}
+{% if ad.image %}
 <meta property="og:image" content="http://bestofblocketse.s3.amazonaws.com/{{ ad.image.file.name }}"/>
+{% endif %}
 {% endif %}
 {% endblock extrahead %}
 
