@@ -16,6 +16,12 @@ class HomePageView(ListView):
     paginate_by = 10
     queryset = Ad.objects.filter(is_approved=True)
 
+    def get_template_names(self):
+        if self.request.is_mobile:
+            return 'mobile/index.html'
+        else:
+            return 'index.html'
+
 
 class JSONListView(JSONResponseMixin, ListView):
 

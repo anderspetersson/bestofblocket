@@ -1,10 +1,36 @@
 {% extends "mobile/base.html" %}
-{% load static %}
+{% block title %}Best of blocket - Sedan 2004{% endblock %}
 
-{% block extrajs %}    
-	<script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/ui12.js' %}"></script>
-{% endblock extrajs %}
+{% block rightnavigation %}
+    <div class="fb-share-button" data-href="http://www.bestofblocket.se/" data-type="button"></div>
+{% endblock rightnavigation %}
 
-{% block rightnavigation %}<a class="btn next">></a>{% endblock rightnavigation %}
+{% block content %}
+<div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+    {% for ad in ad_list %}
+    <div class="owl-wrapper-outer autoHeight">
+    <div class="owl-wrapper" style="display:block;">
+
+        <div class="owl-item">
+        <div class="item">
+            <h1><a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">{{ ad.title }}</a></h1>
+            {% if ad.image %}
+                <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+                </a>
+            {% endif %}
+            <p>{{ ad.text|linebreaksbr }}</p>
+        </div>
+        </div>
+
+
+    </div>
+    </div>
+    {% endfor %}
+    {% if page_obj.has_next %}
+    <div class="randomlink">
+        <a href="?page={{ page_obj.next_page_number }}">Visa fler annonser</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}
