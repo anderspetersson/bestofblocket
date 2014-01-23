@@ -70,7 +70,6 @@ The content `<div>` is where all your content goes.
      .navigation {
         float:right;
         padding:15px;
-        visibility: hidden;
     }
         .btn{
             color:rgb(21, 125, 251);
