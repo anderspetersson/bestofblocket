@@ -13,13 +13,17 @@
 
         <div class="owl-item">
         <div class="item">
-            <h1><a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">{{ ad.title }}</a></h1>
+            {% if ad.generation == 3 %}
+                <h1><a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">{{ ad.title }}</a></h1>
+            {% endif %}
             {% if ad.image %}
                 <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">
                     <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
                 </a>
             {% endif %}
-            <p>{{ ad.text|linebreaksbr }}</p>
+            {% if ad.generation == 3 %}
+                <p>{{ ad.text|linebreaksbr }}</p>
+            {% endif %}
         </div>
         </div>
 
