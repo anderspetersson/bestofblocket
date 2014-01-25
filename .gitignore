@@ -1,6 +1,7 @@
 mobile/
 bestofblocket/media/
 bestofblocket/static/media
+bestofblocket/.static
 dist/
 build/
 *.egg-info

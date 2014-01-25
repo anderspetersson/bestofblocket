@@ -16,5 +16,8 @@ DATABASES = {
     }
 }
 
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
 
 STATIC_URL = '/static/'
+MEDIA_URL = 'static/'

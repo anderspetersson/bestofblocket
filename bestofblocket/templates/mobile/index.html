@@ -24,17 +24,18 @@
             {% if ad.generation == 3 %}
                 <p>{{ ad.text|linebreaksbr }}</p>
             {% endif %}
+            {% if forloop.last %}
+                {% if page_obj.has_next %}
+                <div class="randomlink">
+                    <a href="?page={{ page_obj.next_page_number }}">Visa fler annonser</a>
+                </div>
+                {% endif %}
+            {% endif %}
         </div>
         </div>
-
-
     </div>
     </div>
     {% endfor %}
-    {% if page_obj.has_next %}
-    <div class="randomlink">
-        <a href="?page={{ page_obj.next_page_number }}">Visa fler annonser</a>
-    </div>
-    {% endif %}
+
 </div>
 {% endblock content %}

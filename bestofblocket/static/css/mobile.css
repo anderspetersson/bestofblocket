@@ -118,6 +118,13 @@ p {
     line-height: 50px;
 }
 
+@media(min-width:500px){
+  .randomlink{
+    margin-bottom:30px;
+    
+  }
+}
+
 .randomlink a{
     padding:0 15px;
     text-decoration: none;
