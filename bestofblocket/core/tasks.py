@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-#from django.core.files import File
-#from django.core.files.temp import NamedTemporaryFile
-#from bestofblocket.core.models import Ad
+from django.core.files import File
+from django.core.files.temp import NamedTemporaryFile
+from bestofblocket.core.models import Ad
 from bs4 import BeautifulSoup
 import urllib2
 
@@ -48,6 +48,3 @@ def set_blocket_info(url):
         ad.image.save(img_filename, File(img_temp))
 
     return ad
-
-set_blocket_info(url='http://m.blocket.se/jonkoping/Volvo_V70_II_Momentum__R_design__i_nyskick_54656505.htm?ca=17&w=1')
-
