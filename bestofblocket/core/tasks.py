@@ -35,10 +35,11 @@ def set_blocket_info(url):
     ad.link = orginalurl.split('?')[0]
     ad.save()
 
-    img_tags = soup.find("li", {'class': 'li_mobile_img'})
+    img_tags = soup.find("span", {'class': 'image'})
 
     if img_tags:
-        imageurl = img_tags.find('img')['src']
+        imageurl = img_tags.find('img')['data-src']
+        imageurl = 'http://cdn.blocket.com/static/1/640x480/%s' % imageurl
 
         img_temp = NamedTemporaryFile(delete=True)
         img_temp.write(urllib2.urlopen(imageurl).read())
