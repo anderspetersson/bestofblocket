@@ -38,7 +38,7 @@ def set_blocket_info(url):
     img_tags = soup.find("span", {'class': 'image'})
 
     if img_tags:
-        imageurl = img_tags.find('img')['data-src']
+        imageurl = img_tags['data-src']
         imageurl = 'http://cdn.blocket.com/static/1/640x480/%s' % imageurl
 
         img_temp = NamedTemporaryFile(delete=True)
