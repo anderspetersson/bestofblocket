@@ -20,14 +20,21 @@ def set_blocket_info(url):
     soup = BeautifulSoup(data)
     title = soup.find("h2", {"itemprop": "name"}).string.encode("utf-8")
 
-    content = soup.find("div", {"itemprop": "description"}).p.contents
+    content = soup.find("div", {"itemprop": "description"})
     text = ""
-    for line in content:
-        if not '<strong>' in line.encode('utf-8'): 
-            if line.encode("utf-8") != '<br/>':
-                text+=line
-            elif line.encode("utf-8") == '<br/>':
-                text+='\n'
+
+    # Get contents of each P tag.
+    for paragraph in content:
+        for line in paragraph:
+            if not '<strong>' in line.encode('utf-8'):
+                if line.encode("utf-8") != '<br/>':
+                    text+=line
+                elif line.encode("utf-8") == '<br/>':
+                    text+='\n'
+
+        # Add a newline after each paragraph
+        text+='\n'
+
 
     content = text.encode('utf-8')
 
