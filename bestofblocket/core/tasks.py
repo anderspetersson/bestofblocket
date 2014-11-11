@@ -18,7 +18,8 @@ def set_blocket_info(url):
 
     data = urllib2.urlopen(url).read()
     soup = BeautifulSoup(data)
-    title = soup.find("h1", {"itemprop": "name"}).string.encode("utf-8")
+
+    title = soup.find("h1").string.encode("utf-8")
 
     content = soup.find("div", {"itemprop": "description"})
     text = ""
