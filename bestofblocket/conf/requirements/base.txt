@@ -4,7 +4,7 @@ south
 pillow
 djrill
 django-storages
-boto==2.22.1
+boto==2.40
 django_mobile
 raven
 beautifulsoup4==4.3.2
