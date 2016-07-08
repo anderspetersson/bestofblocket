@@ -1,6 +1,5 @@
 django==1.6.5
 psycopg2
-gunicorn
 south
 pillow
 djrill
