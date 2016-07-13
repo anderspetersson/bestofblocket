@@ -2,7 +2,7 @@ django==1.6.5
 psycopg2
 south
 pillow
-djrill
+django-anymail==0.4.2
 django-storages
 boto==2.40
 django_mobile
