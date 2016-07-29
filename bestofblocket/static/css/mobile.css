@@ -42,7 +42,7 @@ The content `<div>` is where all your content goes.
     margin: 40px auto;
     padding: 0;
     max-width: 800px;
-    margin-bottom: 50px;
+    margin-bottom: 0;
     line-height: 1.6em;
 }
 
@@ -104,6 +104,11 @@ p {
   border-bottom:1px solid #888;
 }
 
+#owl-demo .item:last-child{
+  padding-bottom:0;
+  border-bottom:0;
+}
+
 #owl-demo .item img{
   display: block;
   width: 100%;
@@ -116,13 +121,6 @@ p {
     background-color:#888;
     text-align:center;
     line-height: 50px;
-}
-
-@media(min-width:500px){
-  .randomlink{
-    margin-bottom:30px;
-    
-  }
 }
 
 .randomlink a{
@@ -143,7 +141,7 @@ p {
 }
 
     #bottomad{
-        margin:0 auto; 
+        margin:0 auto;
         text-align:center;
     }
     .bestofblocket-responsive { width: 320px; height: 50px; margin:0 auto; text-align: center;}
