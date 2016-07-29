@@ -4,11 +4,17 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
     {% block extrameta %}{% endblock extrameta %}
     <title>{% block title %}Best of blocket{% endblock title %}</title>
     {% compressed_css 'mobile' %}
     {% block extrajs %}{% endblock extrajs %}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-4932792919894537",
+        enable_page_level_ads: true
+      });
+    </script>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -30,34 +36,19 @@
 
 </script>
 <div id="layout">
+  <div id="main">
+      <div class="header clearfix">
+          <span class="title"><a href="{% url 'index' %}">Best of Blocket</a></span>
+          <div class="navigation">
+            {% block rightnavigation %}{% endblock rightnavigation %}
+          </div>
+      </div>
 
-    <div id="main">
-        <div class="header clearfix">
-            <span class="title"><a href="{% url 'index' %}">Best of Blocket</a></span>
-            <div class="navigation">
-              {% block rightnavigation %}{% endblock rightnavigation %}
-            </div>
-        </div>
-
-        <div class="content">
-            {% block content %}
-                <div id="owl-demo" class="owl-carousel"></div>
-            {% endblock content %}
-        </div>
-        <div id="footer" class="clearfix">
-          <div id="bottomad">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Bestofblocket Responsive -->
-            <ins class="adsbygoogle bestofblocket-responsive"
-                 style="display:inline-block"
-                 data-ad-client="ca-pub-4932792919894537"
-                 data-ad-slot="7556839374"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </div>
-</div>
-
+      <div class="content">
+          {% block content %}
+              <div id="owl-demo" class="owl-carousel"></div>
+          {% endblock content %}
+      </div>
+  </div>
 </body>
 </html>
