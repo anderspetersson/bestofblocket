@@ -32,12 +32,12 @@ spec:
           - name: DATABASE_USER
             valueFrom:
               secretKeyRef:
-                name: prod-db-secret
+                name: bestofblocket-db-secret
                 key: user
           - name: DATABASE_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: prod-db-secret
+                name: bestofblocket-db-secret
                 key: password
           - name: GUNICORN_CMD_ARGS
             value: "--bind=:8000 --workers=1"
