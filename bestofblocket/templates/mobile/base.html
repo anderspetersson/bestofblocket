@@ -1,4 +1,4 @@
-{% load static pipeline %}
+{% load static %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block extrameta %}{% endblock extrameta %}
     <title>{% block title %}Best of blocket{% endblock title %}</title>
-    {% stylesheet 'mobile' %}
+
+    <link rel="stylesheet" href="{% static 'css/mobile.css'}">
     {% block extrajs %}{% endblock extrajs %}
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
