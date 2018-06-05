@@ -17,10 +17,7 @@ class HomePageView(ListView):
     queryset = Ad.objects.filter(is_approved=True)
 
     def get_template_names(self):
-        if self.request.is_mobile:
-            return 'mobile/index.html'
-        else:
-            return 'index.html'
+        return 'mobile/index.html'
 
 
 class JSONListView(JSONResponseMixin, ListView):
@@ -61,10 +58,7 @@ class AdView(DetailView):
     model = Ad
 
     def get_template_names(self):
-        if self.request.is_mobile and self.get_object().generation == 3:
-            return 'mobile/ad.html'
-        else:
-            return 'ad.html'
+        return 'mobile/ad.html'
 
 
 class RandomAdView(RedirectView):
