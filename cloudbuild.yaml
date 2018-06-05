@@ -1,0 +1,30 @@
+steps:
+- id: pull
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['pull', 'gcr.io/roiiogcloud/bestofblocket:latest']
+- id: build
+  name: 'gcr.io/cloud-builders/docker'
+  args: [
+    "build",
+    '--cache-from',
+    'gcr.io/roiiogcloud/bestofblocket',
+    "-t", "gcr.io/roiiogcloud/bestofblocket:$REVISION_ID",
+    "-t", "gcr.io/roiiogcloud/bestofblocket:latest",
+    "."]
+- id: push
+  name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "gcr.io/roiiogcloud/bestofblocket:$REVISION_ID"]
+- id: deploy-bestofblocket
+  name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment
+  - bestofblocket
+  - bestofblocket=gcr.io/roiiogcloud/bestofblocket:$REVISION_ID
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
+images:
+- 'gcr.io/roiiogcloud/bestofblocket:$REVISION_ID'
+- 'gcr.io/roiiogcloud/bestofblocket:latest'
