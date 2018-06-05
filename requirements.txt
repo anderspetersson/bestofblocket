@@ -1,3 +1,4 @@
+setuptools
 django==1.11.13
 psycopg2
 pillow
