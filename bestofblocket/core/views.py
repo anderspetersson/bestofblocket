@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView, RedirectView, CreateView, TemplateView
 from django.contrib.sitemaps import Sitemap
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.template.defaultfilters import linebreaksbr
 from bestofblocket.core.models import Ad, Link
 from bestofblocket.core.forms import SubmitLinkForm

@@ -1,4 +1,6 @@
-from django.conf.urls import include, url
+from django.urls import include, path
+from django.conf.urls import url
+
 from bestofblocket.core.views import HomePageView, AdView, RandomAdView, \
  AdSitemap, SubmitLinkView, ThankView, TextTemplateView, JSONListView, MobileWebsiteView, \
  RandomGen3AdView
@@ -12,7 +14,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    path("admin/", admin.site.urls),
     url(r'^$', HomePageView.as_view(), name='index'),
 
     url(r'^api/$', JSONListView.as_view(), name='jsonindex'),

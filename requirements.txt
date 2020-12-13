@@ -1,10 +1,11 @@
 setuptools
-django==1.11.13
+django==2.2
 psycopg2
 pillow
 django-anymail==0.4.2
 django-storages==1.6.5
 boto==2.48.0
 beautifulsoup4==4.3.2
-django-braces==1.2.2
+django-braces==1.14.0
 gunicorn==19.7.0
+django-pipeline==2.0.5
