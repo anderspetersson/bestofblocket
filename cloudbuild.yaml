@@ -24,7 +24,7 @@ steps:
   - bestofblocket=gcr.io/roiiogcloud/bestofblocket:$REVISION_ID
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-2'
 images:
 - 'gcr.io/roiiogcloud/bestofblocket:$REVISION_ID'
 - 'gcr.io/roiiogcloud/bestofblocket:latest'
