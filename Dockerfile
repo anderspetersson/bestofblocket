@@ -1,4 +1,4 @@
-FROM gcr.io/roiiogcloud/ubuntu:17.10
+FROM eu.gcr.io/roiiogcloud/python:latest
 
 COPY requirements.txt /app/requirements.txt
 WORKDIR /app
