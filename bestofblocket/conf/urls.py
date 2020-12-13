@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^tipsa/', SubmitLinkView.as_view(), name='submit'),
     url(r'^tack/', ThankView.as_view(), name='thanks'),
     url(r'^robots\.txt$', TextTemplateView.as_view(template_name="robots.txt")),
+    url(r'^ads\.txt$', TextTemplateView.as_view(template_name="ads.txt")),
     url(r'(?P<slug>[^/]+)/$', AdView.as_view(), name='ad'),
 ]
