@@ -1,4 +1,4 @@
-FROM eu.gcr.io/roiiogcloud/python:2.9
+FROM eu.gcr.io/roiiogcloud/python:latest
 
 COPY requirements.txt /app/requirements.txt
 WORKDIR /app
