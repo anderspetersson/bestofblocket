@@ -3,7 +3,7 @@
 
 {% block extrameta %}
 {% if ad.image %}
-    <meta property="og:image" content="http://bestofblocketse.s3.amazonaws.com/{{ ad.image.file.name }}"/>
+    <meta property="og:image" content="{{ ad.image.url }}"/>
 {% endif %}
 {% endblock extrameta %}
 
