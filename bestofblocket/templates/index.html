@@ -14,7 +14,7 @@
 	{% endif %}
 	{% if ad.image %}
 	<div class="imageholder">
-		<a href="{% url 'ad' ad.slug %}"><img src="{{ ad.image.url }}"></a>
+		<a href="{% url 'ad' ad.slug %}"><img src="{{ ad.image.url }}" {% if forloop.counter > 2 %}loading="lazy"{% endif %}></a>
 	</div>
 	{% endif %}
 	{% if ad.generation == 3 %}
