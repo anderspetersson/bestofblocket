@@ -2,7 +2,7 @@
 {% block title %}Best of blocket - Sedan 2004{% endblock %}
 
 {% block rightnavigation %}
-    <div class="fb-like" data-href="https://www.facebook.com/pages/BestofBlocketse/235060191081" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+    <div style="height:20px;" class="fb-like" data-href="https://www.facebook.com/pages/BestofBlocketse/235060191081" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 {% endblock rightnavigation %}
 
 {% block content %}
@@ -18,7 +18,7 @@
             {% endif %}
             {% if ad.image %}
                 <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">
-                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}" {% if forloop.counter > 2 %}loading="laxy"{% endif %}>
                 </a>
             {% endif %}
             {% if ad.generation == 3 %}
