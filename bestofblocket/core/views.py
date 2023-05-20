@@ -52,11 +52,11 @@ class AdsDetailJsonView(JSONResponseMixin, DetailView):
     model = Ad
 
     def render_to_response(self, context, **response_kwargs):
-        ad = self.get_object()
+        ad = self.object
         data = {
             'id': ad.pk,
             'title': ad.title,
-            'imageUrl': ad.image,
+            'imageUrl': ad.image.url,
             'text': ad.text
         }
 
@@ -69,7 +69,7 @@ class AdsDetailJsonView(JSONResponseMixin, DetailView):
 
 class RandomAdDetailJsonView(AdsDetailJsonView):
     def get_object(self, queryset=None):
-        return Ad.objects.filter(generation=3, is_approved=True).exclude(image=None).order_by('?')
+        return Ad.objects.filter(generation=3, is_approved=True).exclude(image=None).order_by('?').first()
 
 
 class MobileWebsiteView(TemplateView):
