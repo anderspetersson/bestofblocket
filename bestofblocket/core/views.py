@@ -22,7 +22,6 @@ class JSONListView(JSONResponseMixin, ListView):
     queryset = Ad.objects.filter(is_approved=True, generation=3)
 
     def get(self, request, *args, **kwargs):
-        context_dict = {}
         items = []
         for o in Ad.objects.filter(is_approved=True, generation=3):
             if o.image:
@@ -37,9 +36,7 @@ class JSONListView(JSONResponseMixin, ListView):
                     'bodytext': linebreaksbr(o.text),
                     'slug': o.slug})
 
-        context_dict['items'] = items
-
-        return self.render_json_response(context_dict)
+        return self.render_json_response(items)
 
 
 class MobileWebsiteView(TemplateView):
