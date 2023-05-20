@@ -19,21 +19,33 @@ class HomePageView(ListView):
 
 class ListAdsJsonView(JSONResponseMixin, ListView):
     paginate_by = 10
-    queryset = Ad.objects.filter(is_approved=True, generation=3)
+    model = Ad
 
-    def get(self, request, *args, **kwargs):
-        items = []
-        for o in Ad.objects.filter(is_approved=True, generation=3):
+    def get_queryset(self):
+        return Ad.objects.filter(generation=3, is_approved=True)
+
+    def render_to_response(self, context, **response_kwargs):
+        """
+        Return a response, using the `response_class` for this view, with a
+        template rendered with the given context.
+        Pass response_kwargs to the constructor of the response class.
+        """
+
+        data = []
+        for o in self.get_queryset():
             if o.image:
-                items.append({
+                data.append({
                     'id': o.pk,
                     'title': o.title,
                     'imageUrl': o.image.url,
                     'text': o.text
                 })
 
-        return JsonResponse(items, safe=False)
-
+        response_kwargs.setdefault("safe", False)
+        return JsonResponse(
+            data,
+            **response_kwargs,
+        )
 
 class MobileWebsiteView(TemplateView):
     template_name = 'mobile/index.html'
