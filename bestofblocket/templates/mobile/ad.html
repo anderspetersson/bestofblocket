@@ -21,7 +21,7 @@
             {% if ad.image %}
                 <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
             {% endif %}
-            <p>{{ ad.text|linebreaksbr }}</p>
+            <p>{% if ad.text  %}{{ ad.text|linebreaksbr }}{% endif %}</p>
             <div class="randomlink">
                 <a href="{% url 'randomgen3' %}">Visa ny annons</a>
             </div>

@@ -6,7 +6,6 @@ from bestofblocket.core.views import HomePageView, AdView, RandomAdView, \
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
-admin.autodiscover()
 
 sitemaps = {
     'ads': AdSitemap,
