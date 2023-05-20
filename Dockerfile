@@ -8,7 +8,7 @@ COPY . /app
 RUN python /app/setup.py develop
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
-
+RUN django-admin collectstatic --noinput
 EXPOSE 8000
 
 ENTRYPOINT ["gunicorn", "bestofblocket.conf.wsgi:application"]
