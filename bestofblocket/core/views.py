@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.views.generic import ListView, DetailView, RedirectView, CreateView, TemplateView
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse, reverse_lazy
@@ -36,7 +37,7 @@ class JSONListView(JSONResponseMixin, ListView):
                     'bodytext': linebreaksbr(o.text),
                     'slug': o.slug})
 
-        return self.render_json_response(items)
+        return JsonResponse(items, safe=False)
 
 
 class MobileWebsiteView(TemplateView):
