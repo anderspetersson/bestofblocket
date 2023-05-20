@@ -3,8 +3,6 @@ FROM eu.gcr.io/roiiogcloud/python:latest
 COPY requirements.txt /app/requirements.txt
 WORKDIR /app
 
-RUN pip install setuptools==38.2.4 --no-cache-dir
-
 RUN pip install -r requirements.txt
 COPY . /app
 RUN python /app/setup.py develop
