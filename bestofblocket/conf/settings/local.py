@@ -6,7 +6,7 @@ TEMPLATES[0]['OPTIONS']['debug'] = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bestofblocket_dev',
         'USER': 'bestofblocket_user',
         'PASSWORD': 'bestofblocket_password',
