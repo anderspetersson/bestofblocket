@@ -17,8 +17,7 @@ class HomePageView(ListView):
     queryset = Ad.objects.filter(is_approved=True)
 
 
-class JSONListView(JSONResponseMixin, ListView):
-
+class ListAdsJsonView(JSONResponseMixin, ListView):
     paginate_by = 10
     queryset = Ad.objects.filter(is_approved=True, generation=3)
 
@@ -27,15 +26,11 @@ class JSONListView(JSONResponseMixin, ListView):
         for o in Ad.objects.filter(is_approved=True, generation=3):
             if o.image:
                 items.append({
-                    'titletext': o.title,
-                    'bodytext': linebreaksbr(o.text),
-                    'img': o.image.url,
-                    'slug': o.slug})
-            else:
-                items.append({
-                    'titletext': o.title,
-                    'bodytext': linebreaksbr(o.text),
-                    'slug': o.slug})
+                    'id': o.pk,
+                    'title': o.title,
+                    'imageUrl': o.image.url,
+                    'text': o.text
+                })
 
         return JsonResponse(items, safe=False)
 
