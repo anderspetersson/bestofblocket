@@ -11,13 +11,9 @@ class HomePageView(ListView):
     """
     Render index page.
     """
-
-    template_name = 'index.html'
+    template_name = 'mobile/index.html'
     paginate_by = 10
     queryset = Ad.objects.filter(is_approved=True)
-
-    def get_template_names(self):
-        return 'mobile/index.html'
 
 
 class JSONListView(JSONResponseMixin, ListView):
