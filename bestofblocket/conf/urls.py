@@ -1,4 +1,4 @@
-from django.urls import include, path
+from django.urls import path
 
 from bestofblocket.core.views import HomePageView, AdView, RandomAdView, \
  AdSitemap, SubmitLinkView, ThankView, TextTemplateView, JSONListView, MobileWebsiteView, \
