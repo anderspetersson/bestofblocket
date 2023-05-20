@@ -1,14 +1,16 @@
 FROM eu.gcr.io/roiiogcloud/python:latest
 
-COPY requirements.txt /app/requirements.txt
+ADD requirements.txt /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt
+
 WORKDIR /app
 
-RUN pip install -r requirements.txt
-COPY . /app
-RUN python /app/setup.py develop
+ADD . /app
+RUN pip3 install -e /app/
+
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 RUN django-admin collectstatic --noinput
 EXPOSE 8000
 
-ENTRYPOINT ["gunicorn", "bestofblocket.conf.wsgi:application"]
+CMD ["gunicorn", "bestofblocket.conf.wsgi:application"]

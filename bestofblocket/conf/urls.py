@@ -4,7 +4,7 @@ from bestofblocket.core.views import HomePageView, AdView, RandomAdView, \
  AdSitemap, SubmitLinkView, ThankView, TextTemplateView, JSONListView, MobileWebsiteView, \
  RandomGen3AdView
 from django.contrib.sitemaps.views import sitemap
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 admin.autodiscover()
 
@@ -26,3 +26,5 @@ urlpatterns = [
     path('ads\.txt', TextTemplateView.as_view(template_name="ads.txt")),
     path('<slug:slug>/', AdView.as_view(), name='ad'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
