@@ -17,7 +17,7 @@ class HomePageView(ListView):
     queryset = Ad.objects.filter(is_approved=True)
 
 
-class ListAdsJsonView(JSONResponseMixin, ListView):
+class AdsListJsonView(JSONResponseMixin, ListView):
     paginate_by = 10
     model = Ad
 
@@ -46,6 +46,26 @@ class ListAdsJsonView(JSONResponseMixin, ListView):
             data,
             **response_kwargs,
         )
+
+
+class AdsDetailJsonView(JSONResponseMixin, DetailView):
+    model = Ad
+
+    def render_to_response(self, context, **response_kwargs):
+        ad = self.get_object()
+        data = {
+            'id': ad.pk,
+            'title': ad.title,
+            'imageUrl': ad.image,
+            'text': ad.text
+        }
+
+        response_kwargs.setdefault("safe", False)
+        return JsonResponse(
+            data,
+            **response_kwargs,
+        )
+
 
 class MobileWebsiteView(TemplateView):
     template_name = 'mobile/index.html'
