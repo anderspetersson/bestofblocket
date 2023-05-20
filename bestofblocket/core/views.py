@@ -67,6 +67,11 @@ class AdsDetailJsonView(JSONResponseMixin, DetailView):
         )
 
 
+class RandomAdDetailJsonView(AdsDetailJsonView):
+    def get_object(self, queryset=None):
+        return Ad.objects.filter(generation=3, is_approved=True).exclude(image=None).order_by('?')
+
+
 class MobileWebsiteView(TemplateView):
     template_name = 'mobile/index.html'
 
