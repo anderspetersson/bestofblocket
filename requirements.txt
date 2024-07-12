@@ -1,8 +1,8 @@
 pip==23.1.2
 django==4.2.1
 whitenoise==6.4
-psycopg[binary]==3.1.9
-pillow==9.5.0
+psycopg[binary]==3.2.1
+pillow==10.4.0
 django-anymail==10.0
 django-storages==1.13.2
 boto3==1.26.137

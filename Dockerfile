@@ -8,7 +8,6 @@ WORKDIR /app
 ADD . /app
 RUN pip3 install -e /app/
 
-ENV PYTHONUNBUFFERED 1
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 RUN django-admin collectstatic --noinput
 EXPOSE 8000
