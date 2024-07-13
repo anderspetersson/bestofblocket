@@ -26,6 +26,6 @@ EXPOSE 8000
 
 ENV PATH=/root/.local/bin:$PATH
 
-ENV DJANGO_SETTINGS_MODULE=quizme.conf.settings.production
+ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 
-CMD ["gunicorn", "quizme.conf.wsgi:application"]
+CMD ["gunicorn", "bestofblocket.conf.wsgi:application"]
