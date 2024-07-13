@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %} {% for ad in ad_list %}
+<div class="border-solid border-2 p-6 m-6 w-full max-w-3xl rounded-lg">
+    {% if ad.generation == 3 %}
+    <h1 class="text-4xl mb-6">
+        <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}"
+            >{{ ad.title }}</a
+        >
+    </h1>
+    {% endif %}
+    <div class="mb-4">
+        {% if ad.image %}
+        <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">
+            <img
+                src="{{ ad.image.url }}"
+                alt="{{ ad.title }}"
+                class="object-cover w-full rounded-md"
+            />
+        </a>
+        {% endif %}
+    </div>
+    {% if ad.generation == 3 %}
+    <p class="text-lg">{{ ad.text|linebreaksbr }}</p>
+    {% endif %}
+</div>
+{% if forloop.last %} {% if page_obj.has_next %}
+<a
+    <a href="?page={{ page_obj.next_page_number }}"
+    class="border-solid border-2 p-6 m-6 mt-0 w-full max-w-3xl rounded-lg text-center inline-block"
+    >Nästa sida</a
+>
+{% endif %} {% endif %} {% endfor %} {% endblock content %}

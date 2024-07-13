@@ -12,7 +12,7 @@ class HomePageView(ListView):
     """
     Render index page.
     """
-    template_name = 'mobile/index.html'
+    template_name = 'index.html'
     paginate_by = 10
     queryset = Ad.objects.filter(is_approved=True)
 
@@ -84,7 +84,7 @@ class AdView(DetailView):
     model = Ad
 
     def get_template_names(self):
-        return 'mobile/ad.html'
+        return 'ad.html'
 
 
 class RandomAdView(RedirectView):

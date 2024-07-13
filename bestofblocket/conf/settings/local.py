@@ -7,8 +7,8 @@ TEMPLATES[0]['OPTIONS']['debug'] = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bestofblocket_dev',
-        'USER': 'bestofblocket_user',
+        'NAME': 'bestofblocket',
+        'USER': 'dev',
         'PASSWORD': 'bestofblocket_password',
         'HOST': '127.0.0.1',
         'PORT': '5432',
