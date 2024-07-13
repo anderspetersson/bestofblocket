@@ -1,18 +1,9 @@
 from django.utils.translation import get_language, to_locale
-from django.utils.timezone import utc
 from django.utils.text import slugify
 import datetime
 import os
 import subprocess
 import re
-
-
-def get_tznow():
-    """
-    Returns timezone-aware datetime
-    """
-
-    return datetime.datetime.utcnow().replace(tzinfo=utc)
 
 
 def get_lc():
