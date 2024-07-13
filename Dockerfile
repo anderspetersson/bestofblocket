@@ -28,4 +28,4 @@ ENV PATH=/root/.local/bin:$PATH
 
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 
-CMD ["gunicorn", "bestofblocket.conf.wsgi:application"]
+ENTRYPOINT [ "gunicorn", "bestofblocket.conf.wsgi:application", "--error-logfile=-" ]
