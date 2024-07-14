@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %} {% for ad in ad_list %}
-<div class="border-solid border-2 p-6 m-6 w-full max-w-3xl md:rounded-lg shadow-lg">
+<article class="border-solid border-2 p-6 m-6 w-full max-w-3xl md:rounded-lg shadow-lg">
     {% if ad.generation == 3 %}
     <h1 class="text-4xl mb-6">
         <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}"
@@ -21,7 +21,7 @@
     {% if ad.generation == 3 %}
     <p class="text-lg">{{ ad.text|linebreaksbr }}</p>
     {% endif %}
-</div>
+</article>
 {% if forloop.last %} {% if page_obj.has_next %}
 <a
     <a href="?page={{ page_obj.next_page_number }}"

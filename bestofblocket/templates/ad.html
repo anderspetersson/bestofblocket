@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<div
+<article
     class="border-solid border-2 p-6 m-6 w-full max-w-3xl md:rounded-lg shadow-lg"
 >
     {% if ad.generation == 3 %}
@@ -23,7 +23,7 @@
     {% if ad.generation == 3 %}
     <p class="text-lg">{{ ad.text|linebreaksbr }}</p>
     {% endif %}
-</div>
+</article>
 
 <a
     href="{% url 'randomgen3' %}"
