@@ -20,7 +20,7 @@ steps:
   - set
   - image
   - deployment
-  - nginx-bestofblocket
+  - bestofblocket
   - bestofblocket=europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
