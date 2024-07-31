@@ -23,8 +23,6 @@ RUN apt-get update && apt-get install nginx -y
 COPY --from=buildcontainer /app/ /app/
 COPY --from=buildcontainer /root/.local /root/.local
 
-EXPOSE 8000
-
 ENV PATH=/root/.local/bin:$PATH
 
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
