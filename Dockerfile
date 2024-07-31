@@ -16,8 +16,9 @@ RUN pip3 install --user -e /app/
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 RUN django-admin collectstatic --noinput
 
-
 FROM python:3.12-slim-bookworm
+
+RUN apt-get update && apt-get install nginx -y
 
 COPY --from=buildcontainer /app/ /app/
 COPY --from=buildcontainer /root/.local /root/.local
@@ -28,4 +29,8 @@ ENV PATH=/root/.local/bin:$PATH
 
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 
-ENTRYPOINT [ "gunicorn", "bestofblocket.conf.wsgi:application", "--error-logfile=-", "--access-logfile=-" ]
+# make our entrypoint.sh executable
+RUN chmod +x /app/entrypoint.sh
+
+# execute our entrypoint.sh file
+CMD ["/app/entrypoint.sh"]

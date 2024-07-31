@@ -35,20 +35,15 @@ spec:
           configMap:
             name: nginx
       containers:
-        - name: nginx-bestofblocket
-          image: eu.gcr.io/roiiogcloud/nginx:latest
+        - name: bestofblocket
+          image: europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest
           imagePullPolicy: Always
           volumeMounts:
             - name: nginx
               mountPath: /etc/nginx/
           ports:
-            - containerPort: 8500
-        - name: bestofblocket
-          image: gcr.io/roiiogcloud/bestofblocket:latest
-          imagePullPolicy: Always
-          ports:
-            - name: gunibob
-              containerPort: 8201
+            - name: nginx
+              containerPort: 8500
           resources:
             requests:
               cpu: "50m"
@@ -68,7 +63,7 @@ spec:
                   name: bestofblocket-db-secret
                   key: password
             - name: GUNICORN_CMD_ARGS
-              value: "--bind=:8201 --workers=1"
+              value: "--bind=:8201 --workers=1 --daemon"
       terminationGracePeriodSeconds: 25
 ---
 apiVersion: v1
