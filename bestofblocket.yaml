@@ -63,7 +63,7 @@ spec:
                   name: bestofblocket-db-secret
                   key: password
             - name: GUNICORN_CMD_ARGS
-              value: "--bind=:8501 --workers=1 --daemon"
+              value: "--bind=:8501 --error-logfile=/var/log/gunicorn/error.log --access-logfile=/var/log/gunicorn/access.log --workers=1 --daemon"
       terminationGracePeriodSeconds: 25
 ---
 apiVersion: v1

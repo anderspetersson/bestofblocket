@@ -26,7 +26,7 @@ COPY --from=buildcontainer /root/.local /root/.local
 ENV PATH=/root/.local/bin:$PATH
 
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
-
+EXPOSE 8500
 # make our entrypoint.sh executable
 RUN chmod +x /app/entrypoint.sh
 
