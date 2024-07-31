@@ -1,4 +1,4 @@
-FROM europe-west1-docker.pkg.dev/roiiogcloud/quizportal/python:latest AS buildcontainer
+FROM --platform=linux/amd64 europe-west1-docker.pkg.dev/roiiogcloud/quizportal/python:latest AS buildcontainer
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
@@ -16,7 +16,7 @@ RUN pip3 install --user -e /app/
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 RUN django-admin collectstatic --noinput
 
-FROM python:3.12-slim-bookworm
+FROM --platform=linux/amd64 python:3.12-slim-bookworm
 
 RUN apt-get update && apt-get install nginx -y
 
