@@ -18,17 +18,11 @@ RUN django-admin collectstatic --noinput
 
 FROM --platform=linux/amd64 python:3.12-slim-bookworm
 
-RUN apt-get update && apt-get install nginx -y
-
 COPY --from=buildcontainer /app/ /app/
 COPY --from=buildcontainer /root/.local /root/.local
 
 ENV PATH=/root/.local/bin:$PATH
 
-ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 EXPOSE 8500
-# make our entrypoint.sh executable
-RUN chmod +x /app/entrypoint.sh
 
-# execute our entrypoint.sh file
-CMD ["/app/entrypoint.sh"]
+ENTRYPOINT ["gunicorn", "bestofblocket.conf.wsgi:application"]

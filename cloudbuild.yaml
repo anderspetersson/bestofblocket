@@ -7,7 +7,7 @@ steps:
   args: [
     "build",
     '--cache-from',
-    'gcr.io/roiiogcloud/bestofblocket',
+    'europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket',
     "-t", "europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID",
     "-t", "europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest",
     "."]
