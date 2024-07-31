@@ -1,19 +1,19 @@
 steps:
 - id: pull
   name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/roiiogcloud/bestofblocket:latest']
+  args: ['pull', 'europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest']
 - id: build
   name: 'gcr.io/cloud-builders/docker'
   args: [
     "build",
     '--cache-from',
     'gcr.io/roiiogcloud/bestofblocket',
-    "-t", "gcr.io/roiiogcloud/bestofblocket:$REVISION_ID",
-    "-t", "gcr.io/roiiogcloud/bestofblocket:latest",
+    "-t", "europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID",
+    "-t", "europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest",
     "."]
 - id: push
   name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/roiiogcloud/bestofblocket:$REVISION_ID"]
+  args: ["push", "europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID"]
 - id: deploy-bestofblocket
   name: 'gcr.io/cloud-builders/kubectl'
   args:
@@ -21,10 +21,10 @@ steps:
   - image
   - deployment
   - nginx-bestofblocket
-  - bestofblocket=gcr.io/roiiogcloud/bestofblocket:$REVISION_ID
+  - bestofblocket=europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-2'
 images:
-- 'gcr.io/roiiogcloud/bestofblocket:$REVISION_ID'
-- 'gcr.io/roiiogcloud/bestofblocket:latest'
+- 'europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID'
+- 'europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest'

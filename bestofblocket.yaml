@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-bestofblocket
+  name: bestofblocket
 spec:
   selector:
     matchLabels:
-      app: nginx-bestofblocket
+      app: bestofblocket
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app: nginx-bestofblocket
+        app: bestofblocket
     spec:
       affinity:
         nodeAffinity:
@@ -73,8 +73,8 @@ metadata:
     cloud.google.com/neg: '{"ingress": true}'
     cloud.google.com/app-protocols: '{"http2":"HTTP2"}'
   labels:
-    app: nginx-bestofblocket
-  name: nginx-bestofblocket
+    app: bestofblocket
+  name: bestofblocket
 spec:
   type: ClusterIP
   ports:
@@ -83,4 +83,4 @@ spec:
       protocol: TCP
       name: http2
   selector:
-    app: nginx-bestofblocket
+    app: bestofblocket
