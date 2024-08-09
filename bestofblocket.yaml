@@ -68,9 +68,44 @@ metadata:
     app: bestofblocket
   name: bestofblocket
 spec:
+  type: ClusterIP
   selector:
     app: bestofblocket
   ports:
     - protocol: TCP
       port: 8500
       targetPort: 8500
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-bestofblocket
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/static-ip: "loadbalancer"
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/default-backend: "quizportal-new"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - "bestofblocket.se"
+        - "*.bestofblocket.se"
+      secretName: bestofblocket-se-tls
+  defaultBackend:
+    service:
+      name: bestofblocket
+      port:
+        number: 8500
+  rules:
+    - host: "www.bestofblocket.se"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: bestofblocket
+                port:
+                  number: 8500
