@@ -76,36 +76,75 @@ spec:
       port: 8500
       targetPort: 8500
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: cert-manager.io/v1
+kind: Certificate
 metadata:
-  name: ingress-bestofblocket
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    ingress.kubernetes.io/static-ip: "loadbalancer"
-    acme.cert-manager.io/http01-edit-in-place: "true"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-    nginx.ingress.kubernetes.io/default-backend: "quizportal-new"
+  name: bestofblocket-se
 spec:
-  ingressClassName: nginx
-  tls:
-    - hosts:
-        - "bestofblocket.se"
-        - "*.bestofblocket.se"
-      secretName: bestofblocket-se-tls
-  defaultBackend:
-    service:
-      name: bestofblocket
-      port:
-        number: 8500
+  secretName: bestofblocket-se-tls #link listeners with this
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - "*.bestofblocket.se"
+  - "bestofblocket.se"
+---
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: bestofblocket-healthcheck
+spec:
+  default:
+    config:
+      type: TCP
+      httpHealthCheck:
+        host: www.bestofblocket.se
+  targetRef:
+    group: ""
+    kind: Service
+    name: bestofblocket
+---
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: bestofblocket-https-redirect
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: external-http
+    sectionName: http
   rules:
-    - host: "www.bestofblocket.se"
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: bestofblocket
-                port:
-                  number: 8500
+  - filters:
+    - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+---
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1
+metadata:
+  name: bestofblocket-www
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: external-http
+  hostnames:
+  - "*.bestofblocket.se"
+  rules:
+  - backendRefs:
+    - name: bestofblocket
+      port: 8500
+---
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: bestofblocket-non-www
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: external-http
+  hostnames:
+  - "bestofblocket.se"
+  rules:
+  - backendRefs:
+    - name: bestofblocket
+      port: 8500
