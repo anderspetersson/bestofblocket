@@ -1,5 +1,5 @@
 FROM --platform=linux/amd64 europe-west1-docker.pkg.dev/roiiogcloud/quizportal/python:latest AS buildcontainer
-
+ARG DEBIAN_FRONTEND=noninteractiv
 ENV PATH=/root/.local/bin:$PATH
 
 ADD requirements.txt /app/requirements.txt
