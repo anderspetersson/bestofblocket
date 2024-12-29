@@ -36,8 +36,9 @@ class AdsListJsonView(JSONResponseMixin, ListView):
             if o.image:
                 data.append({
                     'id': o.pk,
+                    'slug': o.slug,
                     'title': o.title,
-                    'imageUrl': o.image.url,
+                    'image_url': o.image.url,
                     'text': o.text
                 })
 
@@ -55,8 +56,9 @@ class AdsDetailJsonView(JSONResponseMixin, DetailView):
         ad = self.object
         data = {
             'id': ad.pk,
+            'slug': ad.slug,
             'title': ad.title,
-            'imageUrl': ad.image.url,
+            'image_url': ad.image.url,
             'text': ad.text
         }
 
