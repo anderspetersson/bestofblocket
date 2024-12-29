@@ -1,5 +1,8 @@
 FROM --platform=linux/amd64 europe-west1-docker.pkg.dev/roiiogcloud/quizportal/python:latest AS buildcontainer
+
 ARG DEBIAN_FRONTEND=noninteractiv
+RUN apt-get update && apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
+
 ENV PATH=/root/.local/bin:$PATH
 
 ADD requirements.txt /app/requirements.txt
