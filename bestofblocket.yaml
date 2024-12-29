@@ -81,7 +81,7 @@ kind: Certificate
 metadata:
   name: bestofblocket-se
 spec:
-  secretName: bestofblocket-se-tls #link listeners with this
+  secretName: bestofblocket-se-tls
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
@@ -95,29 +95,32 @@ metadata:
   name: bestofblocket-healthcheck
 spec:
   default:
+    checkIntervalSec: 60
+    timeoutSec: 30
     config:
       type: TCP
       httpHealthCheck:
         host: www.bestofblocket.se
+        port: 8500
   targetRef:
     group: ""
     kind: Service
     name: bestofblocket
----
-kind: HTTPRoute
-apiVersion: gateway.networking.k8s.io/v1
-metadata:
-  name: bestofblocket-https-redirect
-spec:
-  parentRefs:
-  - kind: Gateway
-    name: external-http
-    sectionName: http
-  rules:
-  - filters:
-    - type: RequestRedirect
-      requestRedirect:
-        scheme: https
+# ---
+# kind: HTTPRoute
+# apiVersion: gateway.networking.k8s.io/v1
+# metadata:
+#   name: bestofblocket-https-redirect
+# spec:
+#   parentRefs:
+#   - kind: Gateway
+#     name: external-http
+#     sectionName: http
+#   rules:
+#   - filters:
+#     - type: RequestRedirect
+#       requestRedirect:
+#         scheme: https
 ---
 kind: HTTPRoute
 apiVersion: gateway.networking.k8s.io/v1
@@ -135,7 +138,7 @@ spec:
       port: 8500
 ---
 kind: HTTPRoute
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 metadata:
   name: bestofblocket-non-www
 spec:
