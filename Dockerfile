@@ -16,7 +16,7 @@ RUN pip3 install --user -e /app/
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 RUN django-admin collectstatic --noinput
 
-FROM --platform=linux/amd64 python:3.12-slim-bookworm
+FROM --platform=linux/amd64 python:3.13-slim-bookworm
 
 COPY --from=buildcontainer /app/ /app/
 COPY --from=buildcontainer /root/.local /root/.local
