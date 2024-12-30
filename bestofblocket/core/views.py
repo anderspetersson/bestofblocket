@@ -51,6 +51,7 @@ class AdsListJsonView(JSONResponseMixin, ListView):
 
 class AdsDetailJsonView(JSONResponseMixin, DetailView):
     model = Ad
+    query_pk_and_slug = True
 
     def render_to_response(self, context, **response_kwargs):
         ad = self.object
