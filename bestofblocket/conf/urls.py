@@ -15,9 +15,9 @@ sitemaps = {
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', HomePageView.as_view(), name='index'),
+    path('api/v1/ads/random/', RandomAdDetailJsonView.as_view(), name='ads-detail-random-json'),
     path('api/v1/ads/<int:pk>/', AdsDetailJsonView.as_view(), name='ads-detail-json'),
     path('api/v1/ads/<slug:slug>/', AdsDetailJsonView.as_view(), name='ads-lookup-by-slug-json'),
-    path('api/v1/ads/random/', RandomAdDetailJsonView.as_view(), name='ads-detail-random-json'),
     path('api/v1/ads/', AdsListJsonView.as_view(), name='ads-list-json'),
     path('slumpa/gen3/', RandomGen3AdView.as_view(), name='randomgen3'),
     path('slumpa/', RandomAdView.as_view(), name='random'),
