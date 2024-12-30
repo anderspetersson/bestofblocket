@@ -55,12 +55,14 @@ class AdsDetailJsonView(JSONResponseMixin, DetailView):
 
     def render_to_response(self, context, **response_kwargs):
         ad = self.object
+        next_random_article = Ad.objects.filter(generation=3, is_approved=True).exclude(image=None).order_by('?').first()
         data = {
             'id': ad.pk,
             'slug': ad.slug,
             'title': ad.title,
             'image_url': ad.image.url,
-            'text': ad.text
+            'text': ad.text,
+            'next_random_article_slug': next_random_article.slug
         }
 
         response_kwargs.setdefault("safe", False)
