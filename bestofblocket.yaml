@@ -16,20 +16,6 @@ spec:
       labels:
         app: bestofblocket
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: cloud.google.com/gke-spot
-                    operator: In
-                    values:
-                      - "true"
-      tolerations:
-        - key: cloud.google.com/gke-spot
-          operator: Equal
-          value: "true"
-          effect: NoSchedule
       containers:
         - name: bestofblocket
           image: europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest
