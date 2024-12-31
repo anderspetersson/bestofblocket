@@ -36,16 +36,22 @@ class AdsListJsonView(JSONResponseMixin, ListView):
         page_number = self.request.GET.get("page")
         page_obj = paginator.get_page(page_number)
 
-        data = []
+        article_list = []
         for o in page_obj:
             if o.image:
-                data.append({
+                article_list.append({
                     'id': o.pk,
                     'slug': o.slug,
                     'title': o.title,
                     'image_url': o.image.url,
                     'text': o.text
                 })
+        data = {}
+        data['articles'] = article_list
+        if page_obj.has_next():
+            data['next_page'] = page_obj.next_page_number()
+        else:
+            data['next_page'] = 1
 
         response_kwargs.setdefault("safe", False)
         return JsonResponse(
