@@ -3,6 +3,8 @@ from django.views.generic import ListView, DetailView, RedirectView, CreateView,
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse, reverse_lazy
 from django.template.defaultfilters import linebreaksbr
+from django.core.paginator import Paginator
+from django.shortcuts import render
 from bestofblocket.core.models import Ad, Link
 from bestofblocket.core.forms import SubmitLinkForm
 from braces.views import JSONResponseMixin
@@ -30,9 +32,12 @@ class AdsListJsonView(JSONResponseMixin, ListView):
         template rendered with the given context.
         Pass response_kwargs to the constructor of the response class.
         """
+        paginator = Paginator(self.get_queryset(), 10)  # Show 25 contacts per page.
+        page_number = self.request.GET.get("page")
+        page_obj = paginator.get_page(page_number)
 
         data = []
-        for o in self.get_queryset():
+        for o in page_obj:
             if o.image:
                 data.append({
                     'id': o.pk,
