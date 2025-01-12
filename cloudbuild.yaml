@@ -23,7 +23,7 @@ steps:
   - bestofblocket
   - bestofblocket=europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID
   env:
-  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1'
+  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-2'
 images:
 - 'europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:$REVISION_ID'
