@@ -44,7 +44,7 @@ spec:
             - name: DJANGO_SETTINGS_MODULE
               value: "bestofblocket.conf.settings.production"
             - name: GUNICORN_CMD_ARGS
-              value: "--bind=:8500 --workers=1 --threads 2 --max-requests=100000 --timeout=65 --error-logfile=- --access-logfile=- --worker-tmp-dir=/dev/shm --preload"
+              value: "--bind=:8500 --workers=1 --threads 2 --max-requests=100000 --timeout=65 --error-logfile=/app/error.log --access-logfile=/app/access.log --worker-tmp-dir=/dev/shm --preload"
       terminationGracePeriodSeconds: 25
 ---
 apiVersion: v1
