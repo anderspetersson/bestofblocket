@@ -13,10 +13,6 @@ env:
   ARTIFACT_REGISTRY_REPO: bestofblocket
   IMAGE: bestofblocket
   GKE_SA_KEY: ${{ secrets.GKE_SA_KEY }}
-  DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-  MAILGUN_API_KEY: ${{ secrets.MAILGUN_API_KEY }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
 
 jobs:
   setup-build-publish-deploy:
