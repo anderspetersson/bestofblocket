@@ -9,8 +9,9 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: cluster-2
   GKE_ZONE: europe-west1-b
-  DEPLOYMENT_NAME: production
+  DEPLOYMENT_NAME: bestofblocket
   IMAGE: bestofblocket
+  GKE_SA_KEY: ${{ secrets.GKE_SA_KEY }}
 
 jobs:
   setup-build-publish-deploy:
