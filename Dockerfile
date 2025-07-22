@@ -33,6 +33,10 @@ COPY --from=buildcontainer /app/ /app/
 COPY --from=buildcontainer /root/.local /root/.local
 
 ENV PATH=/root/.local/bin:$PATH
+ENV DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+ENV MAILGUN_API_KEY=${MAILGUN_API_KEY}
+ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
 
 EXPOSE 8500
 
