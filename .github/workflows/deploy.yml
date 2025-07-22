@@ -64,9 +64,14 @@ jobs:
         docker push "europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:$GITHUB_SHA"
 
     # Deploy the Docker image to the GKE cluster
-    - name: Deploy
-      uses: actions-hub/kubectl@master
-      run: |-
-        kubectl set image deployment $DEPLOYMENT_NAME $IMAGE=europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:TAG=europe-west1-docker.pkg.dev/$ARTIFACT_REGISTRY_REPO/$IMAGE:$GITHUB_SHA
-        kubectl rollout status deployment/$DEPLOYMENT_NAME
-        kubectl get services -o wide
+    - uses: actions-hub/kubectl@master
+      with:
+        args: set image deployment $DEPLOYMENT_NAME $IMAGE=europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:TAG=europe-west1-docker.pkg.dev/$ARTIFACT_REGISTRY_REPO/$IMAGE:$GITHUB_SHA
+
+    - uses: actions-hub/kubectl@master
+      with:
+        args: rollout status deployment/$DEPLOYMENT_NAME
+
+    - uses: actions-hub/kubectl@master
+      with:
+        args: kubectl get services -o wide
