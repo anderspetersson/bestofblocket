@@ -22,7 +22,6 @@ jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
-    environment: production
 
     steps:
     - name: Checkout
@@ -59,7 +58,11 @@ jobs:
           --tag "europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:latest" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
-
+          --build-arg DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" \
+          --build-arg MAILGUN_API_KEY="${{ secrets.MAILGUN_API_KEY }}" \
+          --build-arg AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY }}" \
+          --build-arg AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID }}" \
+          .
 
     # Push the Docker image to Google Container Registry
     - name: Publish
