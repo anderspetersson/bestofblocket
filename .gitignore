@@ -10,3 +10,4 @@ build/
 *.pyc
 *.db
 .DS_Store
+pyrightconfig.json
