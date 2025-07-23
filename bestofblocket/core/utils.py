@@ -1,9 +1,10 @@
-from django.utils.translation import get_language, to_locale
-from django.utils.text import slugify
 import datetime
 import os
-import subprocess
 import re
+import subprocess
+
+from django.utils.text import slugify
+from django.utils.translation import get_language, to_locale
 
 
 def get_lc():
@@ -68,9 +69,6 @@ def get_git_changeset():
     except ValueError:
         return None
     return timestamp.strftime("%Y%m%d%H%M%S")
-
-
-from django.template.defaultfilters import slugify
 
 
 def unique_slugify(
