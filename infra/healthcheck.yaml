@@ -1,0 +1,17 @@
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: bestofblocket-healthcheck
+spec:
+  default:
+    checkIntervalSec: 60
+    timeoutSec: 30
+    config:
+      type: TCP
+      httpHealthCheck:
+        host: www.bestofblocket.se
+        port: 8500
+  targetRef:
+    group: ""
+    kind: Service
+    name: bestofblocket
