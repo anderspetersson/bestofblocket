@@ -88,10 +88,6 @@ class RandomAdDetailJsonView(AdsDetailJsonView):
         return Ad.objects.filter(generation=3, is_approved=True).exclude(image=None).order_by('?').first()
 
 
-class MobileWebsiteView(TemplateView):
-    template_name = 'mobile/index.html'
-
-
 class AdView(DetailView):
     """
     Shows one ad.
@@ -117,7 +113,7 @@ class RandomAdView(RedirectView):
 
 class RandomGen3AdView(RedirectView):
     """
-    Redirect to a random ad of generation 3. (Mobile optimized)
+    Redirect to a random generation 3 (mobile optimized) ad.
     """
 
     permanent = False
@@ -125,28 +121,6 @@ class RandomGen3AdView(RedirectView):
     def get_redirect_url(self, **kwargs):
         ad = Ad.objects.filter(is_approved=True, generation=3).order_by('?')[0]
         return reverse('ad', args=(ad.slug, ))
-
-
-class SubmitLinkView(CreateView):
-    """
-    Let users submit links to blocket-ads.
-    """
-
-    template_name = 'submit.html'
-    form_class = SubmitLinkForm
-
-    def get_success_url(self):
-        url = self.object.url.split('?')[0]
-        ad = Ad.objects.get(link=url)
-        return reverse('ad', kwargs={'slug': ad.slug})
-
-
-class ThankView(TemplateView):
-    """
-    Thanks the user when he/she submits a link.
-    """
-
-    template_name = 'thanks.html'
 
 
 class TextTemplateView(TemplateView):
