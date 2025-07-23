@@ -11,4 +11,5 @@ This repo holds the source code for the website [Bestofblocket.se](https://www.b
 * Postgresql
 * Amazon S3
 * Google Kubernetes Engine
+* Docker
 * Github Actions
