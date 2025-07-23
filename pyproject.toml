@@ -28,3 +28,8 @@ build-backend = "uv_build"
 [tool.uv.build-backend]
 module-name = "bestofblocket"
 module-root = ""
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.4",
+]

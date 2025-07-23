@@ -4,35 +4,57 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Ad',
+            name="Ad",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255)),
-                ('slug', models.SlugField(blank=True, max_length=255, null=True)),
-                ('date', models.DateTimeField(auto_now_add=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='blocketimages/')),
-                ('generation', models.SmallIntegerField(blank=True, default=0, null=True)),
-                ('is_approved', models.BooleanField(default=False)),
-                ('text', models.TextField(blank=True, null=True)),
-                ('link', models.URLField(blank=True, null=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255)),
+                ("slug", models.SlugField(blank=True, max_length=255, null=True)),
+                ("date", models.DateTimeField(auto_now_add=True)),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="blocketimages/"
+                    ),
+                ),
+                (
+                    "generation",
+                    models.SmallIntegerField(blank=True, default=0, null=True),
+                ),
+                ("is_approved", models.BooleanField(default=False)),
+                ("text", models.TextField(blank=True, null=True)),
+                ("link", models.URLField(blank=True, null=True)),
             ],
             options={
-                'ordering': ['-pk'],
+                "ordering": ["-pk"],
             },
         ),
         migrations.CreateModel(
-            name='Link',
+            name="Link",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('url', models.URLField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("url", models.URLField()),
             ],
         ),
     ]

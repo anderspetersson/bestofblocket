@@ -6,13 +6,13 @@ DEBUG = False
 TEMPLATE_DEBUG = False
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bestofblocketprod',
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_SERVICE_HOST'),
-        'PORT': 5432,
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "bestofblocketprod",
+        "USER": os.environ.get("DATABASE_USER"),
+        "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
+        "HOST": os.environ.get("POSTGRES_SERVICE_HOST"),
+        "PORT": 5432,
         "OPTIONS": {
             "pool": {
                 "min_size": 2,
@@ -24,25 +24,25 @@ DATABASES = {
 }
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+    "version": 1,
+    "disable_existing_loggers": True,
+    "formatters": {
+        "verbose": {
+            "format": "%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s"
         },
     },
-    'handlers': {
-        'console': {
-            'level': 'ERROR',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
+    "handlers": {
+        "console": {
+            "level": "ERROR",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
         }
     },
-    'loggers': {
-        '': {
-            'handlers': ['console'],
+    "loggers": {
+        "": {
+            "handlers": ["console"],
         }
-    }
+    },
 }
 
 PREPEND_WWW = True
@@ -56,5 +56,5 @@ STORAGES = {
     },
 }
 
-MEDIA_URL = 'https://media.bestofblocket.se/'
-STATIC_URL = 'https://www.bestofblocket.se/static/'
+MEDIA_URL = "https://media.bestofblocket.se/"
+STATIC_URL = "https://www.bestofblocket.se/static/"
