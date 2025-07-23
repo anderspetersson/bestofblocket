@@ -7,6 +7,8 @@ from bestofblocket.core.views import HomePageView, AdView, RandomAdView, \
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 sitemaps = {
     'ads': AdSitemap,
@@ -26,6 +28,6 @@ urlpatterns = [
     path('ads.txt', TextTemplateView.as_view(template_name='ads.txt')),
     path('privacypolicy/', TemplateView.as_view(template_name='app_privacy_policy.html'),),
     path('<slug:slug>/', AdView.as_view(), name='ad'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

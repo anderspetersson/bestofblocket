@@ -1,6 +1,5 @@
-bestofblocket/media/
-bestofblocket/static/media
-bestofblocket/.static
+media/
+staticfiles/
 .venv
 dist/
 build/

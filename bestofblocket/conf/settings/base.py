@@ -20,6 +20,8 @@ ALLOWED_HOSTS = ['*']
 
 SITE_ID = 1
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -101,9 +103,8 @@ SERVER_EMAIL = 'Bestofblocket.se <tips@mg.bestofblocket.se>'
 
 # Media and Static files
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media/')
-MEDIA_URL = 'https://media.bestofblocket.se/'
-STATIC_URL = 'https://www.bestofblocket.se/static/'
-STATIC_ROOT = (os.path.join(BASE_DIR, 'staticfiles/'))
+
+STATIC_ROOT = (os.path.join(BASE_DIR, '../staticfiles/'))
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
 STORAGES = {

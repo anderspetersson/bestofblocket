@@ -46,3 +46,15 @@ LOGGING = {
 }
 
 PREPEND_WWW = True
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+MEDIA_URL = 'https://media.bestofblocket.se/'
+STATIC_URL = 'https://www.bestofblocket.se/static/'
