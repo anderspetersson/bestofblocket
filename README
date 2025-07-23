@@ -1,8 +1,8 @@
-= Bestofblocket
+# Bestofblocket
 
-This repo holds the source code for the website https://www.bestofblocket.se
+This repo holds the source code for the website [Bestofblocket.se](https://www.bestofblocket.se)
 
-== Tech Stack
+## Tech Stack
 
 * Python
 * Django
