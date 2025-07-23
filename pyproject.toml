@@ -29,9 +29,6 @@ build-backend = "uv_build"
 module-name = "bestofblocket"
 module-root = ""
 
-[tool.ruff.lint]
-select = ["I"]
-
 [tool.ruff.lint.per-file-ignores]
 "bestofblocket/conf/settings/*" = ["F403", "F405"]
 
