@@ -7,6 +7,7 @@
   "terminal": {
     "env": {
       "DJANGO_SETTINGS_MODULE": "bestofblocket.conf.settings.local",
+      "PYTHONWARNINGS": "default",
     }
   }
 }
