@@ -3,9 +3,6 @@ name: Linters
 on:
   pull_request:
     types: [labeled, synchronize, opened, reopened]
-  push:
-    branches:
-      - master
 
 permissions:
   contents: read
