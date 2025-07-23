@@ -37,7 +37,6 @@ RUN uv run django-admin collectstatic --noinput -i css/input.css
 FROM --platform=linux/amd64 python:3.13-slim-bookworm
 
 COPY --from=buildcontainer /app/ /app/
-COPY --from=buildcontainer /root/.local /root/.local
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
