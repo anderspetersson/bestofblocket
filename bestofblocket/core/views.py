@@ -1,10 +1,11 @@
-from django.http import JsonResponse
-from django.views.generic import ListView, DetailView, RedirectView, TemplateView
-from django.contrib.sitemaps import Sitemap
-from django.urls import reverse
-from django.core.paginator import Paginator
-from bestofblocket.core.models import Ad
 from braces.views import JSONResponseMixin
+from django.contrib.sitemaps import Sitemap
+from django.core.paginator import Paginator
+from django.http import JsonResponse
+from django.urls import reverse
+from django.views.generic import DetailView, ListView, RedirectView, TemplateView
+
+from bestofblocket.core.models import Ad
 
 
 class HomePageView(ListView):

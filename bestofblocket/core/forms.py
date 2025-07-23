@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import forms
-from bestofblocket.core.models import Link, Ad
+
+from bestofblocket.core.models import Ad, Link
 
 
 class SubmitLinkForm(forms.ModelForm):

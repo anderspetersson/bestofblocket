@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
+import urllib2
+from bs4 import BeautifulSoup
 from django.core.files import File
 from django.core.files.temp import NamedTemporaryFile
+
 from bestofblocket.core.models import Ad
-from bs4 import BeautifulSoup
-import urllib2
 
 
 def set_blocket_info(url):

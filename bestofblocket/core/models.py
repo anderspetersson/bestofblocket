@@ -1,5 +1,6 @@
-from django.db import models
 from django.core.mail import mail_admins
+from django.db import models
+
 from bestofblocket.core.utils import unique_slugify
 
 
