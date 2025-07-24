@@ -1,5 +1,6 @@
 media/
 staticfiles/
+node_modules/
 .venv
 dist/
 build/

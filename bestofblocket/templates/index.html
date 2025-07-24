@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %} {% for ad in ad_list %}
-<article class="border-solid border-y-2 sm:border-2 p-6 m-4 w-full max-w-3xl sm:rounded-lg sm:shadow-lg">
+<article class="border border-gray-200 border-y-2 md:border-2 p-6 m-4 w-full max-w-3xl md:rounded-lg md:shadow-lg">
     {% if ad.generation == 3 %}
     <h1 class="text-4xl mb-6">
         <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}"

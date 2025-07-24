@@ -4,7 +4,7 @@
 [
   {
     "label": "Tailwind Watch",
-    "command": "npx tailwindcss -i ./bestofblocket/static/css/input.css -o ./bestofblocket/static/css/output.css --watch",
+    "command": "npx @tailwindcss/cli -i ./bestofblocket/static/css/input.css -o ./bestofblocket/static/css/output.css --watch --minify",
     //"args": [],
 
     // Current working directory to spawn the command into, defaults to current project root.
