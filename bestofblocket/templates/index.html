@@ -25,7 +25,7 @@
 {% if forloop.last %} {% if page_obj.has_next %}
 <a
     <a href="?page={{ page_obj.next_page_number }}"
-    class="border-solid border-2 p-6 m-6 mt-0 w-full max-w-3xl md:rounded-lg text-center inline-block shadow-lg"
+    class="border border-gray-200 border-y-2 sm:border-2 p-6 m-4 w-full max-w-3xl sm:rounded-lg sm:shadow-lg text-center"
     >Nästa sida</a
 >
 {% endif %} {% endif %} {% endfor %} {% endblock content %}
