@@ -5,7 +5,7 @@ description = "Source code for Best of Blocket website."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "boto3==1.39.12",
+    "boto3==1.39.13",
     "django==5.2.4",
     "django-anymail==13.0",
     "django-storages==1.14.6",
@@ -29,4 +29,4 @@ module-root = ""
 "bestofblocket/conf/settings/*" = ["F403", "F405"]
 
 [dependency-groups]
-dev = ["ruff>=0.12.4"]
+dev = ["ruff>=0.12.5"]
