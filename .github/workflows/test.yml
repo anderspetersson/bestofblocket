@@ -43,7 +43,7 @@ jobs:
       - name: Run tests
         run: uv run django-admin test
         env:
-          # The hostname used to communicate with the PostgreSQL service container
+          PYTHONWARNINGS: default
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_HOST: localhost
