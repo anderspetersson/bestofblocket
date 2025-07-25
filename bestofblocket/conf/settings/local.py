@@ -10,8 +10,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "bestofblocket",
-        "USER": "dev",
-        "PASSWORD": "bestofblocket_password",
+        "USER": os.environ.get("POSTGRES_USER"),
+        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
         "HOST": "127.0.0.1",
         "PORT": "5432",
         "CONN_MAX_AGE": 600,

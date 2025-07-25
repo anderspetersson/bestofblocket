@@ -3,6 +3,7 @@ name: Linters
 on:
   pull_request:
     types: [labeled, synchronize, opened, reopened]
+  workflow_call:
 
 permissions:
   contents: read
@@ -16,4 +17,4 @@ jobs:
       - name: ruff
         uses: astral-sh/ruff-action@v3
       - run: ruff check --fix
-      - run: ruff format
+      - run: ruff format --diff

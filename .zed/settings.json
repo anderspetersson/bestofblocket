@@ -6,7 +6,9 @@
   "terminal": {
     "env": {
       "DJANGO_SETTINGS_MODULE": "bestofblocket.conf.settings.local",
-      "PYTHONWARNINGS": "default"
+      "PYTHONWARNINGS": "default",
+      "POSTGRES_USER": "dev",
+      "POSTGRES_PASSWORD": "bestofblocket_password"
     }
   },
   "languages": {
