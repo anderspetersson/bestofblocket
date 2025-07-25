@@ -15,15 +15,15 @@ env:
   GKE_SA_KEY: ${{ secrets.GKE_SA_KEY }}
 
 jobs:
-  lint:
-    uses: ./.github/workflows/lint.yml
+  lint_and_check:
+    uses: ./.github/workflows/lint_and_check.yml
 
   test:
     uses: ./.github/workflows/test.yml
 
   setup-build-publish-deploy:
     needs:
-      - lint
+      - lint_and_check
       - test
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
