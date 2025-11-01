@@ -4,7 +4,7 @@ SECRET_KEY = "devsecretkey"
 
 DEBUG = True  # ty: ignore
 
-TEMPLATES[0]["OPTIONS"]["debug"] = True
+TEMPLATES[0]["OPTIONS"]["debug"] = True  # ty: ignore
 
 DATABASES = {
     "default": {
