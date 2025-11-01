@@ -2,7 +2,7 @@ from .base import *
 
 SECRET_KEY = "devsecretkey"
 
-DEBUG = True
+DEBUG = True  # ty: ignore
 
 TEMPLATES[0]["OPTIONS"]["debug"] = True
 
