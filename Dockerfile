@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 python:3.13-slim-bookworm AS buildcontainer
+FROM --platform=linux/amd64 python:3.14-slim-trixie AS buildcontainer
 
 ARG DEBIAN_FRONTEND=noninteractiv
 RUN apt-get update && apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
@@ -34,7 +34,7 @@ ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 
 RUN uv run django-admin collectstatic --noinput -i css/input.css
 
-FROM --platform=linux/amd64 python:3.13-slim-bookworm
+FROM --platform=linux/amd64 python:3.14-slim-trixie
 
 COPY --from=buildcontainer /app/ /app/
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
