@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
+from ..core.api import api
 
 from bestofblocket.core.views import (
     AdSitemap,
@@ -27,6 +28,7 @@ urlpatterns = [
     path("robots.txt", TextTemplateView.as_view(template_name="robots.txt")),
     path("ads.txt", TextTemplateView.as_view(template_name="ads.txt")),
     path("<slug:slug>/", AdView.as_view(), name="ad"),
+    path("api/", api.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
