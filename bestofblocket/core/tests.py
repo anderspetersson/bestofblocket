@@ -15,3 +15,7 @@ class TestURLsTestCase(TestCase):
         response = self.client.get("/945-ltt-olivgron-glastaklucka/")
         self.assertContains(response, "Avgas bristfällig upphängning")
         self.assertEqual(response.status_code, 200)
+
+    def test_get_api_list_page(self):
+        response = self.client.get("/api/ads/")
+        self.assertEqual(response.status_code, 200)

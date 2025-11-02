@@ -11,13 +11,12 @@ api = NinjaAPI()
 class AdSchema(Schema):
     title: str
     slug: str
-    text: str
+    text: str | None
 
 
 @api.get("/ads/", response=List[AdSchema])
 def ad_list(request):
     return list(Ad.objects.all())
-    return "Hello world"
 
 
 @api.get("/ads/{id}", response=AdSchema)
