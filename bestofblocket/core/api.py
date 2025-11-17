@@ -1,9 +1,8 @@
-from ninja import NinjaAPI
-from ninja import Schema
 from typing import List
 
-from .models import Ad
+from ninja import NinjaAPI, Schema
 
+from .models import Ad
 
 api = NinjaAPI()
 
@@ -12,6 +11,7 @@ class AdSchema(Schema):
     title: str
     slug: str
     text: str | None
+    image: str | None
 
 
 @api.get("/ads/", response=List[AdSchema])
