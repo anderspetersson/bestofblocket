@@ -14,11 +14,10 @@ pub fn Header() -> Element {
 }
 
 #[component]
-pub fn ArticleComponent(title: String, image: String, text: String) -> Element {
+pub fn ArticleComponent(title: String, image: Option<String>, text: Option<String>) -> Element {
     rsx! {
-        div { "{title:?}" }
         article { class: "border-solid border-y-2 sm:border-2 p-6 w-full max-w-3xl sm:rounded-lg sm:shadow-lg",
-            h1 { class: "text-4xl mb-6", "{title:?}" },
+            h1 { class: "text-4xl mb-6", {title} },
             img {
                 src: image,
                 class: "object-cover w-full rounded-md",

@@ -8,6 +8,6 @@ pub struct AdList {
 #[derive(serde::Deserialize, Debug, Clone, Props, PartialEq)]
 pub struct Ad {
     pub title: String,
-    pub image: String,
-    pub text: String,
+    pub image: Option<String>,
+    pub text: Option<String>,
 }
