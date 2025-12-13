@@ -16,9 +16,11 @@ spec:
       labels:
         app: bestofblocket
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
         - name: bestofblocket
-          image: europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest
+          image: anderspetersson/lillebrorgroup:latest
           imagePullPolicy: Always
           ports:
             - name: http
@@ -41,6 +43,11 @@ spec:
                 secretKeyRef:
                   name: bestofblocket-db-secret
                   key: password
+            - name: DJANGO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: bestofblocket-secrets
+                  key: django-secret-key
             - name: DJANGO_SETTINGS_MODULE
               value: "bestofblocket.conf.settings.production"
             - name: GUNICORN_CMD_ARGS
