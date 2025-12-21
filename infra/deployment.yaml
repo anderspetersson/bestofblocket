@@ -17,10 +17,10 @@ spec:
         app: bestofblocket
     spec:
       imagePullSecrets:
-        - name: regcred
+        - name: gcp-artifact-registry
       containers:
         - name: bestofblocket
-          image: anderspetersson/lillebrorgroup:latest
+          image: europe-west1-docker.pkg.dev/roiiogcloud/bestofblocket/bestofblocket:latest
           imagePullPolicy: Always
           ports:
             - name: http
