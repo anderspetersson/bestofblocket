@@ -16,6 +16,9 @@
       "binary": {
         "path": "./.venv/bin/ty",
         "arguments": ["server"]
+      },
+      "settings": {
+        "diagnosticMode": "workspace"
       }
     }
   },
