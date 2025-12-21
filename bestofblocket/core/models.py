@@ -22,7 +22,14 @@ class Ad(models.Model):
     def get_absolute_url(self):
         return "/%s/" % self.slug
 
-    def save(self, **kwargs):
+    def save(
+        self,
+        *args,
+        force_insert=False,
+        force_update=False,
+        using=None,
+        update_fields=None,
+    ):
         unique_slugify(self, value=self.title)
         super().save()
 
