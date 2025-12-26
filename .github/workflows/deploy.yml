@@ -55,8 +55,8 @@ jobs:
         with:
           platforms: linux/amd64
           tags: |
-            europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:$GITHUB_SHA
-            europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:latest
+            "europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:$GITHUB_SHA"
+            "europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:latest"
           secrets: |
             "DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}"
             "MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }}"
