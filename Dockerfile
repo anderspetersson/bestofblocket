@@ -22,15 +22,10 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 
-ARG DJANGO_SECRET_KEY
-ARG MAILGUN_API_KEY
-ARG AWS_SECRET_ACCESS_KEY
-ARG AWS_ACCESS_KEY_ID
-
-ENV DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
-ENV MAILGUN_API_KEY=$MAILGUN_API_KEY
-ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+RUN --mount=type=secret,id=DJANGO_SECRET_KEY,env=DJANGO_SECRET_KEY \
+    --mount=type=secret,id=MAILGUN_API_KEY,env=MAILGUN_API_KEY \
+    --mount=type=secret,id=AWS_SECRET_ACCESS_KEY,env=AWS_SECRET_ACCESS_KEY \
+    --mount=type=secret,id=AWS_ACCESS_KEY_ID,env=AWS_ACCESS_KEY_ID \
 
 RUN uv run django-admin collectstatic --noinput -i css/input.css
 
@@ -41,15 +36,11 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
 
-ARG DJANGO_SECRET_KEY
-ARG MAILGUN_API_KEY
-ARG AWS_SECRET_ACCESS_KEY
-ARG AWS_ACCESS_KEY_ID
+RUN --mount=type=secret,id=DJANGO_SECRET_KEY,env=DJANGO_SECRET_KEY \
+    --mount=type=secret,id=MAILGUN_API_KEY,env=MAILGUN_API_KEY \
+    --mount=type=secret,id=AWS_SECRET_ACCESS_KEY,env=AWS_SECRET_ACCESS_KEY \
+    --mount=type=secret,id=AWS_ACCESS_KEY_ID,env=AWS_ACCESS_KEY_ID \
 
-ENV DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
-ENV MAILGUN_API_KEY=$MAILGUN_API_KEY
-ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
-ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 ENV PATH="/app/.venv/bin:$PATH"
 
 RUN --mount=type=cache,target=/root/.cache/uv \
