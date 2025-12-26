@@ -62,9 +62,6 @@ jobs:
             "MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }}"
             "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}"
             "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}"
-            "MAILGUN_API_KEY=${{ secrets.DJANGO_SECRET_KEY }}"
-            "MAILGUN_API_KEY=${{ secrets.DJANGO_SECRET_KEY }}"
-            "MAILGUN_API_KEY=${{ secrets.DJANGO_SECRET_KEY }}"
 
       # Push the Docker image to Google Container Registry
       - name: Publish
