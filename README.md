@@ -10,6 +10,6 @@ This repo holds the source code for the website [Bestofblocket.se](https://www.b
 * Gunicorn
 * Postgresql
 * Amazon S3
-* Google Kubernetes Engine
+* Kubernetes
 * Docker
 * Github Actions
