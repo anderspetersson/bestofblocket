@@ -54,9 +54,9 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64
-          tags:
-            - "europe-west1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.IMAGE:$GITHUB_SHA }}"
-            - "europe-west1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REGISTRY_REPO/$IMAGE:latest"
+          tags: |
+            "europe-west1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.IMAGE:$GITHUB_SHA }}"
+            "europe-west1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.IMAGE }}:latest"
           secrets: |
             "DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}"
             "MAILGUN_API_KEY=${{ secrets.MAILGUN_API_KEY }}"
