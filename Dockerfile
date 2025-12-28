@@ -37,11 +37,7 @@ WORKDIR /app
 
 ENV PATH="/app/.venv/bin:$PATH"
 
-RUN --mount=type=secret,id=DJANGO_SECRET_KEY,env=DJANGO_SECRET_KEY \
-    --mount=type=secret,id=MAILGUN_API_KEY,env=MAILGUN_API_KEY \
-    --mount=type=secret,id=AWS_SECRET_ACCESS_KEY,env=AWS_SECRET_ACCESS_KEY \
-    --mount=type=secret,id=AWS_ACCESS_KEY_ID,env=AWS_ACCESS_KEY_ID \
-    --mount=type=cache,target=/root/.cache/uv \
+RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev
 
 EXPOSE 8500
