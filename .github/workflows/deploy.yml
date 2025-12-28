@@ -53,7 +53,7 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v6
         with:
-          platforms: linux/amd64
+          platforms: linux/aarch64
           tags: |
             "europe-west1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.IMAGE }}:${{ github.sha }}"
             "europe-west1-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.IMAGE }}:latest"
