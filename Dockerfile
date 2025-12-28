@@ -1,7 +1,6 @@
-FROM --platform=linux/amd64 python:3.14-slim-trixie AS buildcontainer
+FROM --platform=linux/aarch64 python:3.14-slim-trixie AS buildcontainer
 
 ARG DEBIAN_FRONTEND=noninteractiv
-RUN apt-get update && apt-get install -y --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 ENV PATH="/app/.venv/bin:$PATH"
 
@@ -17,6 +16,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-dev
 
 ADD . /app
+
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev
 
@@ -28,7 +28,7 @@ RUN --mount=type=secret,id=DJANGO_SECRET_KEY,env=DJANGO_SECRET_KEY \
     --mount=type=secret,id=AWS_ACCESS_KEY_ID,env=AWS_ACCESS_KEY_ID \
     uv run django-admin collectstatic --noinput -i css/input.css
 
-FROM --platform=linux/amd64 python:3.14-slim-trixie
+FROM --platform=linux/aarch64 python:3.14-slim-trixie
 
 COPY --from=buildcontainer /app/ /app/
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
