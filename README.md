@@ -9,7 +9,7 @@ This repo holds the source code for the website [Bestofblocket.se](https://www.b
 * TailwindCSS
 * Gunicorn
 * Postgresql
-* Amazon S3
+* Cloudflare R2
 * Kubernetes
 * Docker
 * Github Actions
