@@ -1,18 +1,3 @@
-# kind: HTTPRoute
-# apiVersion: gateway.networking.k8s.io/v1
-# metadata:
-#   name: bestofblocket-https-redirect
-# spec:
-#   parentRefs:
-#     - kind: Gateway
-#       name: external-http
-#       sectionName: http
-#   rules:
-#     - filters:
-#         - type: RequestRedirect
-#           requestRedirect:
-#             scheme: https
-# ---
 kind: HTTPRoute
 apiVersion: gateway.networking.k8s.io/v1
 metadata:
@@ -21,8 +6,8 @@ spec:
   parentRefs:
     - kind: Gateway
       name: traefik-gateway
-  # hostnames:
-  #   - "www.bestofblocket.se"
+  hostnames:
+    - "www.bestofblocket.se"
   rules:
     - backendRefs:
         - name: bestofblocket
@@ -36,9 +21,11 @@ spec:
   parentRefs:
     - kind: Gateway
       name: traefik-gateway
-  # hostnames:
-  #   - "bestofblocket.se"
+  hostnames:
+    - "bestofblocket.se"
   rules:
-    - backendRefs:
-        - name: bestofblocket
-          port: 8500
+    - filters:
+      - type: RequestRedirect
+        requestRedirect:
+          statusCode: 301
+          hostname: www.bestofblocket.se
