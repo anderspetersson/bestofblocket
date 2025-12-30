@@ -52,6 +52,7 @@ STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         "OPTIONS": {
+            "custom_domain": "media.bestofblocket.se",
             "endpoint_url": "https://{}.r2.cloudflarestorage.com".format(
                 os.environ.get("CLOUDFLARE_ACCOUNT_ID")
             ),
