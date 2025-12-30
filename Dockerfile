@@ -21,8 +21,6 @@ ENV DJANGO_SETTINGS_MODULE=bestofblocket.conf.settings.production
 
 RUN --mount=type=secret,id=DJANGO_SECRET_KEY,env=DJANGO_SECRET_KEY \
     --mount=type=secret,id=MAILGUN_API_KEY,env=MAILGUN_API_KEY \
-    --mount=type=secret,id=AWS_SECRET_ACCESS_KEY,env=AWS_SECRET_ACCESS_KEY \
-    --mount=type=secret,id=AWS_ACCESS_KEY_ID,env=AWS_ACCESS_KEY_ID \
     uv run django-admin collectstatic --noinput -i css/input.css
 
 FROM python:3.14-slim-trixie

@@ -48,6 +48,26 @@ spec:
                 secretKeyRef:
                   name: bestofblocket-secrets
                   key: django-secret-key
+            - name: CLOUDFLARE_ACCOUNT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: bestofblocket-secrets
+                  key: cloudflare-account-id
+            - name: R2_BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: bestofblocket-secrets
+                  key: r2-bucket-name
+            - name: R2_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: bestofblocket-secrets
+                  key: r2-access-key-id
+            - name: R2_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: bestofblocket-secrets
+                  key: r2-secret-access-key
             - name: DJANGO_SETTINGS_MODULE
               value: "bestofblocket.conf.settings.production"
             - name: GUNICORN_CMD_ARGS

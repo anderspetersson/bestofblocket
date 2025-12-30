@@ -99,19 +99,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "../media/")
 
 STATIC_ROOT = os.path.join(BASE_DIR, "../staticfiles/")
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static/"),)
-
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-AWS_STORAGE_BUCKET_NAME = "bestofblocketse"
-AWS_S3_SECURE_URLS = True
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_CUSTOM_DOMAIN = "media.bestofblocket.se"
