@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: bestofblocket
+        network-postgres: allow
     spec:
       imagePullSecrets:
         - name: gcp-artifact-registry
