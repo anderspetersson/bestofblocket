@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if object_list %}
+        {% for ad in object_list %}
+            <article class="border border-gray-200 border-y-2 md:border-2 p-6 m-4 w-full max-w-3xl md:rounded-lg md:shadow-lg">
+                {% if ad.generation == 3 %}
+                    <h1 class="text-4xl mb-6">
+                        <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">{{ ad.title }}</a>
+                    </h1>
+                {% endif %}
+                <div class="mb-4">
+                    {% if ad.image %}
+                        <a href="{% url 'ad' ad.slug %}" title="{{ ad.title }}">
+                            <img src="{{ ad.image.url }}" alt="{{ ad.title }}" class="object-cover w-full rounded-md" />
+                        </a>
+                    {% endif %}
+                </div>
+                {% if ad.generation == 3 %}
+                    <p class="text-lg">{{ ad.text|linebreaksbr }}</p>
+                {% endif %}
+            </article>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"
+               class="border border-gray-200 border-y-2 sm:border-2 p-6 m-4 w-full max-w-3xl sm:rounded-lg sm:shadow-lg text-center">
+                Nästa sida
+            </a>
+        {% endif %}
+    {% else %}
+        <p class="mt-4 text-center text-lg">
+            Inga sökresultat för "{{ request.GET.q }}".
+        </p>
+    {% endif %}
+{% endblock content %}

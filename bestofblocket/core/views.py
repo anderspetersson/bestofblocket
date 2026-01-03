@@ -38,6 +38,21 @@ class RandomAdView(RedirectView):
         return reverse("ad", args=(ad.slug,))
 
 
+class SearchPageView(ListView):
+    """
+    Shows search results.
+    """
+
+    template_name = "search.html"
+    paginate_by = 10
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        if query:
+            return Ad.objects.filter(is_approved=True, title__icontains=query)
+        return Ad.objects.filter(is_approved=True)
+
+
 class RandomGen3AdView(RedirectView):
     """
     Redirect to a random generation 3 (mobile optimized) ad.
