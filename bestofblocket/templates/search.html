@@ -23,7 +23,7 @@
         {% endfor %}
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}"
+            <a href="?q={{ request.GET.q }}&page={{ page_obj.next_page_number }}"
                class="border border-gray-200 border-y-2 sm:border-2 p-6 m-4 w-full max-w-3xl sm:rounded-lg sm:shadow-lg text-center">
                 Nästa sida
             </a>
