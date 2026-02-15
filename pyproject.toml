@@ -10,7 +10,7 @@ dependencies = [
     "django-anymail==14.0",
     "django-ninja>=1.5.1",
     "django-storages==1.14.6",
-    "gunicorn==25.0.3",
+    "gunicorn==25.1.0",
     "pillow==12.1.0",
     "psycopg==3.3.2",
     "psycopg-binary==3.3.2",
