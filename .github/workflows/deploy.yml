@@ -51,7 +51,7 @@ jobs:
 
       # Build the Docker image
       - name: Build
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           platforms: linux/amd64
           tags: |
