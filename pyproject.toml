@@ -35,5 +35,5 @@ unresolved-attribute = "ignore"
 [dependency-groups]
 dev = [
     "ruff==0.15.7",
-    "ty==0.0.23"
+    "ty==0.0.24"
 ]
