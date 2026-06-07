@@ -5,7 +5,7 @@ description = "Source code for Best of Blocket website."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "boto3==1.43.18",
+    "boto3==1.43.24",
     "django==6.0.6",
     "django-anymail==15.0",
     "django-ninja>=1.5.1",
