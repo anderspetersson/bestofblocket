@@ -14,7 +14,7 @@ class Ad(models.Model):
     link = models.URLField(null=True, blank=True)
 
     class Meta:
-        ordering = ["-pk"]  # ruff: ignore[RUF012]
+        ordering = ("-pk",)
 
     def __str__(self):
         return self.title
