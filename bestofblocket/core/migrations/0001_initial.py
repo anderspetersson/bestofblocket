@@ -3,6 +3,7 @@
 from django.db import migrations, models
 
 
+# ruff: disable[RUF012]
 class Migration(migrations.Migration):
     initial = True
 
@@ -58,3 +59,6 @@ class Migration(migrations.Migration):
             ],
         ),
     ]
+
+
+# ruff: enable[RUF012]

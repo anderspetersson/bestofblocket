@@ -2,7 +2,7 @@ from django.test import Client, TestCase
 
 
 class TestURLsTestCase(TestCase):
-    fixtures = ["testdata.json"]
+    fixtures = ["testdata.json"]  # ruff: ignore[RUF012]
 
     def setUp(self):
         self.client = Client()

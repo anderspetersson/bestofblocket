@@ -14,13 +14,13 @@ class Ad(models.Model):
     link = models.URLField(null=True, blank=True)
 
     class Meta:
-        ordering = ["-pk"]
+        ordering = ["-pk"]  # ruff: ignore[RUF012]
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return "/%s/" % self.slug
+        return f"/{self.slug}/"
 
     def save(
         self,
