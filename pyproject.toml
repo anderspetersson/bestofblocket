@@ -5,13 +5,13 @@ description = "Source code for Best of Blocket website."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "boto3==1.43.51",
+    "boto3==1.43.56",
     "django==6.0.7",
     "django-anymail==15.0",
     "django-ninja>=1.5.1",
     "django-storages==1.14.6",
     "gunicorn==26.0.0",
-    "pillow==12.2.0",
+    "pillow==12.3.0",
     "psycopg==3.3.4",
     "psycopg-binary==3.3.4",
     "psycopg-pool==3.3.1",
@@ -34,6 +34,6 @@ unresolved-attribute = "ignore"
 
 [dependency-groups]
 dev = [
-    "ruff==0.15.22",
-    "ty==0.0.61"
+    "ruff==0.16.0",
+    "ty==0.0.63"
 ]
