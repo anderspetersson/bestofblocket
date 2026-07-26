@@ -1,5 +1,3 @@
-from typing import List
-
 from ninja import NinjaAPI, Schema
 
 from .models import Ad
@@ -14,7 +12,7 @@ class AdSchema(Schema):
     image: str | None
 
 
-@api.get("/ads/", response=List[AdSchema])
+@api.get("/ads/", response=list[AdSchema])
 def ad_list(request):
     return list(Ad.objects.all())
 
